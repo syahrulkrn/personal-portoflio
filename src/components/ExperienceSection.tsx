@@ -22,7 +22,7 @@ const experiences = [
   {
     role: "Freelance Fullstack Web Developer (Next.js)",
     company: "Freelance Experience",
-    period: "Sep 2023 – Present",
+    period: "Since 2023 based on project",
     location: "Remote",
     description: [
       "Built custom Next.js web applications focused on performance, SEO, and scalability",

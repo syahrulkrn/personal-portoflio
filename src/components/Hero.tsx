@@ -19,11 +19,11 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-4"
         >
-          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-b from-gray-700 to-gray-900 p-1 ring-4 ring-white/5">
+          {/* <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-b from-gray-700 to-gray-900 p-1 ring-4 ring-white/5">
             <div className="w-full h-full rounded-full overflow-hidden bg-gray-800 flex items-center justify-center">
               <span className="text-4xl md:text-6xl">🧑‍💻</span>
             </div>
-          </div>
+          </div> */}
 
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">

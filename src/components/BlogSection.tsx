@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export function BlogSection() {
   const blogs = [
@@ -70,7 +71,7 @@ export function BlogSection() {
               <Link
                 href={blog.href}
                 className={cn(
-                  "group block h-full p-8 rounded-[2rem] border transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[320px] backdrop-blur-md",
+                  "group block h-full p-8 rounded-[2rem] border transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[320px] backdrop-blur-md cursor-pointer",
                   // Glass effect with primary background color base - increased opacity and used gradient for better visibility
                   "bg-gradient-to-br from-primary/40 to-primary/10 border-white/20 hover:from-primary/50 hover:to-primary/20 hover:border-white/30"
                 )}
@@ -101,6 +102,15 @@ export function BlogSection() {
               </Link>
             </motion.div>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-12">
+            <Link href="/blog" className="cursor-pointer">
+                <Button className="bg-white text-black hover:bg-gray-200 rounded-full h-14 px-8 group text-lg font-medium shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                    View All Articles
+                    <ArrowUpRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Button>
+            </Link>
         </div>
       </div>
     </section>

@@ -214,16 +214,16 @@ export function Footer({ showPhysics = true }: { showPhysics?: boolean }) {
         </div>
         
         <div className="flex items-center gap-8">
-            <Link href="#" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
-                Twitter <ArrowUpRight className="w-3 h-3" />
+            <Link target="_blank" href="https://github.com/syahrulkrn" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+                Github <ArrowUpRight className="w-3 h-3" />
             </Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            <Link target="_blank" href="https://www.linkedin.com/in/syahrul-kurniawan-1717a5193/" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
                 LinkedIn <ArrowUpRight className="w-3 h-3" />
             </Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            <Link target="_blank"  href="https://www.instagram.com/syahrulkrn/" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
                 Instagram <ArrowUpRight className="w-3 h-3" />
             </Link>
-            <Link href="#" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
+            <Link target="_blank" href="https://www.youtube.com/@syahrulkrn" className="text-sm text-gray-400 hover:text-white flex items-center gap-1 transition-colors">
                 Youtube <ArrowUpRight className="w-3 h-3" />
             </Link>
         </div>

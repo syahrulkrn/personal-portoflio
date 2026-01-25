@@ -5,6 +5,7 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const projects = [
   {
@@ -76,11 +77,11 @@ function Card({ project, index, range, targetScale }: { project: typeof projects
   const scale = useTransform(scrollYProgress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="h-[100vh] flex items-center justify-center sticky" style={{ top: `calc(5vh + ${index * 25}px)` }}>
+    <div ref={container} className="md:h-[100vh] sm:h-auto mt-16 md:mt-0 flex items-center justify-center sticky [--top-offset:12vh] md:[--top-offset:5vh]" style={{ top: `calc(var(--top-offset) + ${index * 25}px)` }}>
         <motion.div 
           style={{ scale }} 
           className={cn(
-            "relative flex flex-col w-full max-w-6xl rounded-[2.5rem] overflow-hidden border origin-top shadow-2xl backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 border-white/20 hover:from-primary/50 hover:to-primary/20 hover:border-white/30"
+            "relative flex flex-col w-full max-w-6xl rounded-[2.5rem] overflow-hidden border origin-top shadow-2xl backdrop-blur-md bg-gradient-to-br from-primary/40 to-black/90 border-white/20 hover:from-black/50 hover:to-primary/20 hover:border-white/30"
           )}
         >
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 p-8 md:p-12 items-center h-full">
@@ -99,7 +100,7 @@ function Card({ project, index, range, targetScale }: { project: typeof projects
                 {project.stats.map((stat, i) => (
                   <div key={i} className="flex items-center gap-3 text-gray-300">
                     <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
-                    <span className="text-sm md:text-base font-light">{stat}</span>
+                    <span className="text-sm md:text-base font-bold">{stat}</span>
                   </div>
                 ))}
               </div>
@@ -198,6 +199,15 @@ export function FeaturedWork() {
           const targetScale = 1 - ( (projects.length - i) * 0.05);
           return <Card key={i} index={i} project={project} range={[i * .25, 1]} targetScale={targetScale}/>
         })}
+      </div>
+
+      <div className="flex justify-center relative z-10">
+        <Link href="/works" className="cursor-pointer">
+            <Button className="bg-white text-black hover:bg-gray-200 rounded-full h-14 px-8 group text-lg font-medium shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+                View All Works
+                <ArrowUpRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Button>
+        </Link>
       </div>
     </section>
   );

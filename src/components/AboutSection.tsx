@@ -86,7 +86,7 @@ export function AboutSection() {
           transition={{ duration: 0.7, type: "spring" }}
           className="relative flex justify-center md:justify-end order-1 md:order-2"
         >
-          <div className="relative bg-white p-4 pb-16 shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-500 max-w-sm w-full">
+          <div className="relative bg-white p-4 pb-16 shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-500 max-w-[320px] md:max-w-sm w-full">
             <div className="relative aspect-[4/5] bg-gray-200 overflow-hidden transition-all duration-500">
               <Image
                 src="/syahrul.jpeg"

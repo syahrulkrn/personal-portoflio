@@ -9,7 +9,7 @@ import { Home, Briefcase, User, CircleHelp, BookOpen } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
-  { name: "Works", href: "/#works", icon: Briefcase },
+  { name: "Works", href: "/works", icon: Briefcase },
   { name: "About", href: "/about", icon: User },
   { name: "Blog", href: "/blog", icon: BookOpen },
   // { name: "FAQ", href: "/#faq", icon: CircleHelp },
@@ -37,7 +37,7 @@ export function Navbar() {
             key={item.name}
             href={item.href}
             className={cn(
-              "px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors rounded-full hover:bg-white/10 flex items-center gap-2"
+              "px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors rounded-full hover:bg-white/10 flex items-center gap-2 cursor-pointer"
             )}
           >
             <item.icon className="w-4 h-4" />
@@ -58,7 +58,7 @@ export function Navbar() {
                 asChild
                 className="bg-white text-black hover:bg-gray-200 rounded-full whitespace-nowrap h-9 px-5 text-sm font-medium"
               >
-                <Link href="#contact">Let&apos;s talk</Link>
+                <Link href="#contact" className="cursor-pointer">Let&apos;s talk</Link>
               </Button>
             </motion.div>
           )}
