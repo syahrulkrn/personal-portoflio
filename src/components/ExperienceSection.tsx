@@ -7,7 +7,7 @@ const experiences = [
   {
     role: "Fullstack Web Developer (React & Next.js)",
     company: "PT Nutech Integrasi (Telkom Indonesia Group)",
-    period: "Jul 2023 – Jan 2026",
+    period: "2023 – 2026",
     location: "Jakarta, Indonesia",
     description: [
       "Developed and maintained large-scale enterprise and government web applications using React and Next.js",
@@ -40,7 +40,7 @@ const experiences = [
   {
     role: "Web Developer (WordPress)",
     company: "PT Otewe Maju Bersama",
-    period: "Dec 2021 – Apr 2023",
+    period: "2021 – 2023",
     location: "Jakarta, Indonesia",
     description: [
       "Developed and maintained company websites using WordPress",
@@ -53,7 +53,7 @@ const experiences = [
   {
     role: "Web Developer (WordPress)",
     company: "PT Trikarya Birawa",
-    period: "Nov 2020 – Nov 2021",
+    period: "2020 – 2021",
     location: "Jakarta, Indonesia",
     description: [
       "Managed and optimized WordPress-based e-commerce websites",

@@ -77,7 +77,7 @@ function Card({ project, index, range, targetScale }: { project: typeof projects
   const scale = useTransform(scrollYProgress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="md:h-[100vh] sm:h-auto mt-16 md:mt-0 flex items-center justify-center sticky [--top-offset:12vh] md:[--top-offset:5vh]" style={{ top: `calc(var(--top-offset) + ${index * 25}px)` }}>
+    <div ref={container} className="md:h-[100vh] sm:h-auto mt-16 md:mt-0 flex items-center justify-center sticky [--top-offset:12vh] md:[--top-offset:5vh]" style={{ top: `var(--top-offset)` }}>
         <motion.div 
           style={{ scale }} 
           className={cn(

@@ -84,14 +84,14 @@ export function Hero() {
           >
             Let&apos;s talk
           </Button>
-          <Button
+          {/* <Button
             variant="outline"
             size="lg"
             className="border-white/20 text-white hover:bg-white/10 rounded-full px-8 h-12 text-base font-medium group"
           >
             Get Template
             <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Button>
+          </Button> */}
         </motion.div>
       </div>
     </section>

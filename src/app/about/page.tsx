@@ -115,12 +115,29 @@ export default function AboutPage() {
               animate={{ x: "-50%" }}
               transition={{
                 ease: "linear",
-                duration: 10,
+                duration: 20,
                 repeat: Infinity,
               }}
               style={{ width: "max-content" }}
             >
               {[
+                {
+                  src: "/syahrul-berlari.jpeg",
+                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
+                },
+                {
+                  src: "/syahrul-laptopan.jpeg",
+                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
+                },
+                {
+                  src: "/syahrul-bola.jpeg",
+                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
+                },
+                {
+                  src: "/syahrul-kitsune.jpeg",
+                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
+                },
+                // Duplicates for seamless loop
                 {
                   src: "/syahrul-berlari.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
