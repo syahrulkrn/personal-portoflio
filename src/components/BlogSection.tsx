@@ -33,7 +33,7 @@ export function BlogSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-emerald-400/80 text-xs font-bold tracking-[0.2em] uppercase"
+            className="text-white text-xs font-bold tracking-[0.2em] uppercase"
           >
             Thoughts and Blogs
           </motion.span>
@@ -70,10 +70,9 @@ export function BlogSection() {
               <Link
                 href={blog.href}
                 className={cn(
-                  "group block h-full p-8 rounded-[2rem] border transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[320px]",
-                  blog.featured
-                    ? "border-emerald-500/30 bg-gradient-to-br from-emerald-950/20 to-transparent hover:border-emerald-500/50"
-                    : "border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20"
+                  "group block h-full p-8 rounded-[2rem] border transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[320px] backdrop-blur-md",
+                  // Glass effect with primary background color base - increased opacity and used gradient for better visibility
+                  "bg-gradient-to-br from-primary/40 to-primary/10 border-white/20 hover:from-primary/50 hover:to-primary/20 hover:border-white/30"
                 )}
               >
                 <div className="space-y-4 z-10 relative">
@@ -87,10 +86,7 @@ export function BlogSection() {
 
                 <div className="z-10 relative">
                   <span className={cn(
-                    "inline-flex p-3 rounded-full transition-all duration-300",
-                    blog.featured 
-                      ? "bg-emerald-500/20 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-black" 
-                      : "bg-white/10 text-white group-hover:bg-white group-hover:text-black"
+                    "inline-flex p-3 rounded-full transition-all duration-300 bg-white/10 text-white group-hover:bg-white group-hover:text-black"
                   )}>
                     {blog.featured ? (
                       <ArrowUpRight className="w-5 h-5" />

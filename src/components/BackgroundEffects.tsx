@@ -6,7 +6,7 @@ export function BackgroundEffects() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
       {/* Radial Gradient for depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_70%)] z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000000_70%)] z-10" />
 
       {/* Ripples */}
       {[1, 2, 3, 4].map((i) => (

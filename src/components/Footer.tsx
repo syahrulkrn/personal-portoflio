@@ -153,7 +153,7 @@ export function Footer({ showPhysics = true }: { showPhysics?: boolean }) {
   }, [showPhysics]);
 
   return (
-    <footer id="contact" className="relative bg-[#020617] border-t border-white/5 pt-0 overflow-hidden">
+    <footer id="contact" className="relative bg-black  pt-0 overflow-hidden">
         
       {/* Physics Container */}
       {showPhysics && (
@@ -216,7 +216,7 @@ export function Footer({ showPhysics = true }: { showPhysics?: boolean }) {
       )}
 
       {/* Footer Links */}
-      <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 bg-[#020617] relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 bg-black relative z-10">
         <div className="text-gray-400 text-sm">
           Created by <span className="text-white">@syahrulkrn</span>
         </div>

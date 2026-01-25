@@ -15,7 +15,7 @@ export function AboutSection() {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-emerald-400/80 text-xs font-bold tracking-[0.2em] uppercase"
+              className="text-white text-xs font-bold tracking-[0.2em] uppercase"
             >
               About Me
             </motion.span>
@@ -90,8 +90,8 @@ export function AboutSection() {
             {/* Name Tag & Cursor */}
             <div className="absolute -bottom-6 -right-6 z-20">
                <div className="relative">
-                  <MousePointer2 className="w-6 h-6 text-emerald-400 fill-emerald-400 absolute -top-3 -left-3 z-20" />
-                  <div className="bg-emerald-300 text-black text-xs font-bold px-3 py-1 rounded-sm shadow-lg transform rotate-[-4deg]">
+                  <MousePointer2 className="w-6 h-6 text-white fill-primary absolute -top-3 -left-3 z-20" />
+                  <div className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-sm shadow-lg transform rotate-[-4deg]">
                     Sunal Sood
                   </div>
                </div>

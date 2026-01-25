@@ -39,7 +39,7 @@ export function FAQSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-emerald-400/80 text-xs font-bold tracking-[0.2em] uppercase"
+            className="text-white text-xs font-bold tracking-[0.2em] uppercase"
           >
             Some Doubts
           </motion.span>
@@ -70,7 +70,7 @@ export function FAQSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-[#0b1221] rounded-3xl p-8 border border-white/5 relative overflow-hidden h-full flex flex-col"
+            className="bg-gradient-to-br from-primary/40 to-primary/10 rounded-3xl p-8 border border-white/5 relative overflow-hidden h-full flex flex-col"
           >
             <div className="relative z-10 space-y-6 flex-1 flex flex-col">
               <h3 className="text-2xl font-serif text-white text-center">
@@ -114,9 +114,9 @@ export function FAQSection() {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border border-white/5 bg-[#0b1221] px-6 rounded-2xl data-[state=open]:bg-[#0b1221]"
+                  className="border border-white/5 bg-gradient-to-br from-primary/40 to-primary/10 px-6 rounded-2xl data-[state=open]:bg-gradient-to-br from-primary/40 to-primary/10"
                 >
-                  <AccordionTrigger className="text-left text-white hover:no-underline hover:text-emerald-400 py-6 text-lg font-medium">
+                  <AccordionTrigger className="text-left text-white hover:no-underline hover:text-white py-6 text-lg font-medium">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-400 text-base leading-relaxed whitespace-pre-line pb-6">

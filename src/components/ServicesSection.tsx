@@ -14,7 +14,7 @@ export function ServicesSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-emerald-400/80 text-xs font-bold tracking-[0.2em] uppercase"
+            className="text-white text-xs font-bold tracking-[0.2em] uppercase"
           >
             My Services
           </motion.span>
@@ -45,7 +45,7 @@ export function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#0b1221] rounded-[2rem] p-6 border border-white/5 space-y-6 hover:border-white/10 transition-colors"
+            className="rounded-[2rem] p-6 border border-white/20 space-y-6 hover:border-white/30 transition-colors backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 hover:from-primary/50 hover:to-primary/20"
           >
             <div className="rounded-xl overflow-hidden relative aspect-video bg-gray-800">
                {/* Placeholder for video/gif */}
@@ -56,7 +56,7 @@ export function ServicesSection() {
                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
             </div>
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-emerald-400">
+              <div className="flex items-center gap-2 text-white">
                 <Sparkles className="w-5 h-5" />
                 <h3 className="font-bold text-lg text-white">Storytelling</h3>
               </div>
@@ -72,10 +72,10 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-2 bg-[#0b1221] rounded-[2rem] p-8 border border-white/5 flex flex-col md:flex-row gap-8 hover:border-white/10 transition-colors"
+            className="lg:col-span-2 bg-gradient-to-br from-primary/40 to-primary/10 rounded-[2rem] p-8 border border-white/5 flex flex-col md:flex-row gap-8 hover:border-white/10 transition-colors"
           >
             <div className="flex-1 space-y-4 flex flex-col justify-center">
-               <div className="flex items-center gap-2 text-emerald-400">
+               <div className="flex items-center gap-2 text-white">
                 <Sparkles className="w-5 h-5" />
                 <h3 className="font-bold text-lg text-white">UX Research</h3>
               </div>
@@ -94,7 +94,7 @@ export function ServicesSection() {
                ].map((item, idx) => (
                  <div key={idx} className="bg-white/5 rounded-xl p-4 flex flex-col items-center justify-center gap-3 text-center border border-white/5 hover:bg-white/10 transition-colors">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                       <item.icon className="w-5 h-5 text-emerald-300" />
+                       <item.icon className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-xs font-medium text-gray-300">{item.label}</span>
                  </div>
@@ -108,10 +108,10 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="lg:col-span-2 bg-[#0b1221] rounded-[2rem] p-8 border border-white/5 space-y-6 hover:border-white/10 transition-colors relative overflow-hidden group"
+            className="lg:col-span-2 bg-gradient-to-br from-primary/40 to-primary/10 rounded-[2rem] p-8 border border-white/5 space-y-6 hover:border-white/10 transition-colors relative overflow-hidden group"
           >
              <div className="relative z-10 space-y-2">
-               <div className="flex items-center gap-2 text-emerald-400">
+               <div className="flex items-center gap-2 text-white">
                 <Sparkles className="w-5 h-5" />
                 <h3 className="font-bold text-lg text-white">Visual Design</h3>
               </div>
@@ -127,7 +127,7 @@ export function ServicesSection() {
                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
                 </div>
                 {/* Interface Content */}
-                <div className="h-48 bg-[#0b1221] rounded-lg p-4 grid grid-cols-4 gap-4">
+                <div className="h-48 bg-gradient-to-br from-primary/40 to-primary/10 rounded-lg p-4 grid grid-cols-4 gap-4">
                    <div className="col-span-1 bg-white/5 rounded h-full animate-pulse"></div>
                    <div className="col-span-3 bg-white/5 rounded h-full relative overflow-hidden">
                       <div className="absolute top-4 left-4 w-2/3 h-4 bg-white/10 rounded"></div>
@@ -143,12 +143,12 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="bg-[#0b1221] rounded-[2rem] p-6 border border-white/5 space-y-6 hover:border-white/10 transition-colors flex flex-col justify-between"
+            className="rounded-[2rem] p-6 border border-white/20 space-y-6 hover:border-white/30 transition-colors flex flex-col justify-between backdrop-blur-md bg-gradient-to-br from-[#8d8e94]/40 to-[#8d8e94]/10 hover:from-[#8d8e94]/50 hover:to-[#8d8e94]/20"
           >
             <div className="flex-1 flex items-center justify-center py-8">
                {/* Bezier Curve Illustration */}
                <div className="relative w-32 h-32">
-                  <svg viewBox="0 0 100 100" className="w-full h-full stroke-emerald-400 fill-none stroke-2">
+                  <svg viewBox="0 0 100 100" className="w-full h-full stroke-white fill-none stroke-2">
                      <path d="M10,80 Q50,10 90,50" />
                      {/* Nodes */}
                      <circle cx="10" cy="80" r="3" className="fill-white" />
@@ -162,7 +162,7 @@ export function ServicesSection() {
                </div>
             </div>
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-emerald-400">
+              <div className="flex items-center gap-2 text-white">
                 <Sparkles className="w-5 h-5" />
                 <h3 className="font-bold text-lg text-white">Prototyping</h3>
               </div>

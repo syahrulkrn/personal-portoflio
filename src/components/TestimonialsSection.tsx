@@ -36,7 +36,7 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-emerald-400/80 text-xs font-bold tracking-[0.2em] uppercase"
+            className="text-white text-xs font-bold tracking-[0.2em] uppercase"
           >
             Testimonial of few folks
           </motion.span>
@@ -66,10 +66,10 @@ export function TestimonialsSection() {
            <div className="flex gap-6 animate-marquee-slow hover:pause">
              {[...testimonials, ...testimonials].map((testimonial, index) => (
                <motion.div
-                 key={index}
-                 className="flex-shrink-0 w-[350px] md:w-[400px] p-8 rounded-[2rem] bg-[#0b1221] border border-white/5 space-y-6 hover:border-white/10 transition-colors"
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
+                key={index}
+                className="flex-shrink-0 w-[350px] md:w-[400px] p-8 rounded-[2rem] border border-white/20 space-y-6 hover:border-white/30 transition-colors backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 hover:from-primary/50 hover:to-primary/20"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ delay: index * 0.1 }}
                >

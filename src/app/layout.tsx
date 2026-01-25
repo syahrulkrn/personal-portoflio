@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} antialiased bg-[#030712] text-white`}
+        className={`${playfair.variable} antialiased bg-black text-white`}
       >
         {children}
       </body>

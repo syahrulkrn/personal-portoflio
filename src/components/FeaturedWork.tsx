@@ -76,20 +76,18 @@ function Card({ project, index, range, targetScale }: { project: typeof projects
   const scale = useTransform(scrollYProgress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="h-[80vh] flex items-center justify-center sticky" style={{ top: `calc(5vh + ${index * 25}px)` }}>
+    <div ref={container} className="h-[100vh] flex items-center justify-center sticky" style={{ top: `calc(5vh + ${index * 25}px)` }}>
         <motion.div 
           style={{ scale }} 
           className={cn(
-            "relative flex flex-col w-full max-w-6xl rounded-[2.5rem] overflow-hidden border bg-gradient-to-br origin-top shadow-2xl",
-            project.theme,
-            project.border
+            "relative flex flex-col w-full max-w-6xl rounded-[2.5rem] overflow-hidden border origin-top shadow-2xl backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 border-white/20 hover:from-primary/50 hover:to-primary/20 hover:border-white/30"
           )}
         >
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 p-8 md:p-12 items-center h-full">
             {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <span className="text-emerald-400 text-xs font-bold tracking-wider uppercase">
+                <span className="text-white text-xs font-bold tracking-wider uppercase">
                   {project.company} • {project.year}
                 </span>
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight">
@@ -100,7 +98,7 @@ function Card({ project, index, range, targetScale }: { project: typeof projects
               <div className="space-y-3">
                 {project.stats.map((stat, i) => (
                   <div key={i} className="flex items-center gap-3 text-gray-300">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
                     <span className="text-sm md:text-base font-light">{stat}</span>
                   </div>
                 ))}
@@ -162,7 +160,7 @@ export function FeaturedWork() {
   })
 
   return (
-    <section className="py-24 px-4 bg-[#020617]" id="works" ref={container}>
+    <section className="py-24 px-4 bg-black" id="works" ref={container}>
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center space-y-4">
@@ -170,7 +168,7 @@ export function FeaturedWork() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-emerald-400/80 text-xs font-bold tracking-[0.2em] uppercase"
+            className="text-white text-xs font-bold tracking-[0.2em] uppercase"
           >
             Curated Work
           </motion.span>

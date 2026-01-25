@@ -9,7 +9,7 @@ import { Sun } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#020617] text-white selection:bg-green-500/30 overflow-hidden">
+    <main className="min-h-screen bg-black text-white selection:bg-green-500/30 overflow-hidden">
       <Navbar />
       
       <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
@@ -44,40 +44,87 @@ export default function AboutPage() {
         </div>
 
         {/* Gallery Section */}
-        <div className="mt-24 flex flex-col md:flex-row justify-center items-center gap-8 md:gap-0 group/gallery min-h-[500px]">
-            {[
-                { emoji: "💻", color: "bg-blue-900/20" },
-                { emoji: "🌊", color: "bg-emerald-900/20" },
-                { emoji: "🍳", color: "bg-orange-900/20" },
-                { emoji: "🏠", color: "bg-purple-900/20" }
-            ].map((item, index) => (
+        <div className="mt-24 min-h-[500px] flex flex-col justify-center">
+            {/* Desktop View */}
+            <div className="hidden md:flex flex-row justify-center items-center gap-0 group/gallery">
+                {[
+                    { emoji: "💻", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { emoji: "🌊", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { emoji: "🍳", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { emoji: "🏠", color: "bg-gradient-to-br from-primary/40 to-primary/10" }
+                ].map((item, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 50, rotate: index % 2 === 0 ? -6 : 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 + index * 0.1, type: "spring" }}
+                        className={`
+                            w-72 aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 relative shadow-2xl backdrop-blur-sm 
+                            ${item.color}
+                            -ml-32 first:ml-0 
+                            transition-all duration-500 ease-out
+                            group-hover/gallery:ml-4 group-hover/gallery:rotate-0 group-hover/gallery:scale-100
+                            hover:!scale-105 hover:!z-10
+                        `}
+                        style={{ zIndex: index }}
+                    >
+                         {/* Placeholder for images - using gradients and emojis for now */}
+                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+                         
+                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                            <span className="text-6xl filter drop-shadow-lg transform transition-transform group-hover/gallery:scale-110 duration-500">
+                                {item.emoji}
+                            </span>
+                         </div>
+                         
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover/gallery:opacity-40 transition-opacity" />
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* Mobile Auto-play Carousel */}
+            <div className="md:hidden w-full overflow-hidden py-10">
                 <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50, rotate: index % 2 === 0 ? -6 : 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1, type: "spring" }}
-                    className={`
-                        w-full max-w-sm md:w-72 aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 relative shadow-2xl backdrop-blur-sm 
-                        ${item.color}
-                        md:-ml-32 md:first:ml-0 
-                        transition-all duration-500 ease-out
-                        group-hover/gallery:md:ml-4 group-hover/gallery:md:rotate-0 group-hover/gallery:md:scale-100
-                        hover:!scale-105 hover:!z-10
-                    `}
-                    style={{ zIndex: index }}
+                    className="flex gap-6"
+                    animate={{ x: "-50%" }}
+                    transition={{
+                        ease: "linear",
+                        duration: 10,
+                        repeat: Infinity,
+                    }}
+                    style={{ width: "max-content" }}
                 >
-                     {/* Placeholder for images - using gradients and emojis for now */}
-                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-                     
-                     <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                        <span className="text-6xl filter drop-shadow-lg transform transition-transform group-hover/gallery:scale-110 duration-500">
-                            {item.emoji}
-                        </span>
-                     </div>
-                     
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover/gallery:opacity-40 transition-opacity" />
+                    {[
+                        { emoji: "💻", color: "bg-blue-900/20" },
+                        { emoji: "🌊", color: "bg-emerald-900/20" },
+                        { emoji: "🍳", color: "bg-orange-900/20" },
+                        { emoji: "🏠", color: "bg-purple-900/20" },
+                        { emoji: "💻", color: "bg-blue-900/20" },
+                        { emoji: "🌊", color: "bg-emerald-900/20" },
+                        { emoji: "🍳", color: "bg-orange-900/20" },
+                        { emoji: "🏠", color: "bg-purple-900/20" }
+                    ].map((item, index) => (
+                        <div
+                            key={index}
+                            className={`
+                                w-72 aspect-[3/4] rounded-3xl overflow-hidden border border-white/10 relative shadow-2xl backdrop-blur-sm 
+                                ${item.color}
+                                flex-shrink-0
+                            `}
+                        >
+                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+                             
+                             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                                <span className="text-6xl filter drop-shadow-lg">
+                                    {item.emoji}
+                                </span>
+                             </div>
+                             
+                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                        </div>
+                    ))}
                 </motion.div>
-            ))}
+            </div>
         </div>
         
         {/* Details Section */}

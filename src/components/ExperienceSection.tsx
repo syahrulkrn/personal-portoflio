@@ -46,7 +46,7 @@ export function ExperienceSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-emerald-400 font-bold tracking-wider text-sm uppercase"
+            className="text-white font-bold tracking-wider text-sm uppercase"
           >
             My Experiences
           </motion.span>
@@ -75,7 +75,7 @@ export function ExperienceSection() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                 <div className="md:col-span-4 space-y-2">
                     <h3 className="text-xl font-medium">
-                        {exp.role}, <span className="text-emerald-400">{exp.company}</span>
+                        {exp.role}, <span className="text-white">{exp.company}</span>
                     </h3>
                     <p className="text-gray-400 text-sm italic">
                         {exp.period} / {exp.location}
@@ -91,7 +91,7 @@ export function ExperienceSection() {
                             <p className="text-gray-400 text-sm italic">~ collaborated with</p>
                             <div className="flex -space-x-3">
                                 {exp.collaborators.map((src, i) => (
-                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-[#020617] overflow-hidden relative">
+                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-black overflow-hidden relative">
                                         <Image 
                                             src={src} 
                                             alt="Collaborator" 
@@ -114,19 +114,19 @@ export function ExperienceSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="mt-20 rounded-[2.5rem] bg-gradient-to-r from-emerald-200 to-teal-400 p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden"
+            className="mt-20 rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 border border-white/20"
         >
             <div className="space-y-4 z-10 max-w-lg">
-                <h3 className="text-3xl md:text-4xl font-serif text-emerald-950 leading-tight">
+                <h3 className="text-3xl md:text-4xl font-serif text-white leading-tight">
                     Let&apos;s Connect and Create Something Amazing!
                 </h3>
-                <p className="text-emerald-900/80 font-medium">
+                <p className="text-gray-200 font-medium">
                     Reach out to me for collaborations, inquiries, or just to say hello.
                 </p>
             </div>
             <div className="z-10 shrink-0">
                 <Button 
-                    className="bg-[#0b1221] text-white hover:bg-black rounded-full px-8 py-6 text-lg group"
+                    className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-6 text-lg group"
                 >
                     Contact Me
                     <ArrowUpRight className="ml-2 w-5 h-5 group-hover:rotate-45 transition-transform" />

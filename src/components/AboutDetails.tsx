@@ -14,7 +14,7 @@ export function AboutDetails() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-emerald-400 font-bold tracking-wider text-sm uppercase"
+                className="text-white font-bold tracking-wider text-sm uppercase"
             >
                 Beyond Portfolio
             </motion.span>
@@ -34,10 +34,10 @@ export function AboutDetails() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="mt-8 bg-[#0b1221] rounded-3xl p-6 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors aspect-[4/5] flex flex-col"
+                className="mt-8 rounded-3xl p-6 border border-white/20 relative overflow-hidden group hover:border-white/30 transition-colors aspect-[4/5] flex flex-col backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 hover:from-primary/50 hover:to-primary/20"
             >
                 <div className="relative z-10 flex items-center gap-2 mb-4">
-                    <Sparkles className="w-4 h-4 text-emerald-400" />
+                    <Sparkles className="w-4 h-4 text-white" />
                     <span className="text-white font-medium">Current Read</span>
                 </div>
                 
@@ -70,11 +70,11 @@ export function AboutDetails() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-[#0b1221] rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors flex-1 min-h-[300px]"
+                className="rounded-3xl p-8 border border-white/20 relative overflow-hidden group hover:border-white/30 transition-colors flex-1 min-h-[300px] backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 hover:from-primary/50 hover:to-primary/20"
             >
                 <div className="relative z-10 space-y-6">
                     <div className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-emerald-400" />
+                        <Sparkles className="w-4 h-4 text-white" />
                         <span className="text-white font-medium text-lg">My Tech Stacks</span>
                     </div>
                     <p className="text-gray-400 text-sm leading-relaxed">
@@ -84,7 +84,7 @@ export function AboutDetails() {
                     <div className="flex gap-4 mt-8">
                         {[Figma, Code2, PenTool].map((Icon, i) => (
                             <div key={i} className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer group/icon">
-                                <Icon className="w-8 h-8 text-gray-400 group-hover/icon:text-emerald-400 transition-colors" />
+                                <Icon className="w-8 h-8 text-gray-400 group-hover/icon:text-white transition-colors" />
                             </div>
                         ))}
                     </div>
@@ -98,7 +98,7 @@ export function AboutDetails() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="h-32 bg-[#0b1221] rounded-3xl border border-white/5 flex items-center justify-center relative overflow-hidden group hover:border-white/10 transition-colors"
+                className="h-32 bg-black rounded-3xl border border-white/5 flex items-center justify-center relative overflow-hidden group hover:border-white/10 transition-colors"
             >
                  <div className="relative z-10 w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-transform duration-300">
                      <Coffee className="w-8 h-8 text-white" />
@@ -114,13 +114,13 @@ export function AboutDetails() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="bg-gradient-to-br from-emerald-900/20 to-[#0b1221] rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors h-48 flex flex-col justify-center"
+                className="rounded-3xl p-8 border border-white/20 relative overflow-hidden group hover:border-white/30 transition-colors h-48 flex flex-col justify-center backdrop-blur-md bg-gradient-to-br from-[#8d8e94]/40 to-[#8d8e94]/10 hover:from-[#8d8e94]/50 hover:to-[#8d8e94]/20"
             >
                 <div className="relative z-10">
                     <p className="text-white/80 font-medium mb-4">Some designers I admire 🤩</p>
                     <div className="flex -space-x-4">
                         {[1, 2, 3, 4, 5].map((_, i) => (
-                            <div key={i} className="w-12 h-12 rounded-full border-2 border-[#0b1221] bg-gray-700 flex items-center justify-center overflow-hidden relative">
+                            <div key={i} className="w-12 h-12 rounded-full border-2 border-black bg-gray-700 flex items-center justify-center overflow-hidden relative">
                                 <span className="text-lg">👤</span>
                             </div>
                         ))}
@@ -139,7 +139,7 @@ export function AboutDetails() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="h-64 bg-[#0b1221] rounded-3xl border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors"
+                className="h-64 bg-gradient-to-br from-primary/40 to-primary/10 rounded-3xl border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors"
             >
                 {/* Map Background Pattern */}
                 <div className="absolute inset-0 opacity-20 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] bg-cover bg-center grayscale"></div>
@@ -170,11 +170,11 @@ export function AboutDetails() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="flex-1 bg-[#0b1221] rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors min-h-[300px] flex flex-col"
+                className="flex-1 bg-gradient-to-br from-primary/40 to-primary/10 rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-colors min-h-[300px] flex flex-col"
             >
                  <div className="relative z-10 mb-8">
                     <div className="flex items-center gap-2 mb-2">
-                        <Sparkles className="w-4 h-4 text-emerald-400" />
+                        <Sparkles className="w-4 h-4 text-white" />
                         <span className="text-white font-medium text-lg">My Persona</span>
                     </div>
                     <p className="text-gray-400 text-sm">Know me as a person</p>
@@ -182,7 +182,7 @@ export function AboutDetails() {
 
                 <div className="flex-1 relative space-y-4">
                     <div className="flex justify-end">
-                        <span className="bg-emerald-400/10 text-emerald-400 px-4 py-2 rounded-xl rounded-tr-none text-sm font-medium border border-emerald-400/20">
+                        <span className="bg-emerald-400/10 text-white px-4 py-2 rounded-xl rounded-tr-none text-sm font-medium border border-emerald-400/20">
                             Social-animal 🥳
                         </span>
                     </div>
