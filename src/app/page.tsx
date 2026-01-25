@@ -19,10 +19,11 @@ export default function Home() {
       <FeaturedWork />
       <TapeDivider />
       <BlogSection />
-      <ServicesSection />
-      <TestimonialsSection />
+      {/* <ServicesSection /> */}
       <AboutSection />
-      <FAQSection />
+      <TestimonialsSection />
+
+      {/* <FAQSection /> */}
       <Footer />
     </main>
   );

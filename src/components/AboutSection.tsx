@@ -48,10 +48,14 @@ export function AboutSection() {
             className="space-y-6 text-gray-400 leading-relaxed"
           >
             <p>
-              I&apos;ve designed multiple web & mobile experiences for multi-cross-platform devices from TV to Ipads, etc. I&apos;ve worked with small agencies and also with medium-sized companies.
+              I’m Syahrul, a Fullstack Developer who enjoys building things that
+              actually work in the real world — not just look good on a slide
+              deck.
             </p>
             <p>
-              I previously worked with one of India&apos;s largest Ed-Tech startups, Toppr which later got acquired by Byjus. Currently I&apos;m designing aesthetic and functional solutions for smallcase within the invest team, to enhance financial accessibility and understanding for Indian users.
+              My journey started with crafting websites and gradually grew into
+              building scalable, production-ready web applications used in
+              enterprise and government environments.{" "}
             </p>
           </motion.div>
 
@@ -61,7 +65,11 @@ export function AboutSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            <Button asChild variant="outline" className="rounded-full h-12 px-6 border-white/20 text-white hover:bg-white/10 group">
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-full h-12 px-6 border-white/20 text-white hover:bg-white/10 group"
+            >
               <a href="/about">
                 Know more
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -80,19 +88,24 @@ export function AboutSection() {
         >
           <div className="relative bg-white p-4 pb-16 shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-500 max-w-sm w-full">
             <div className="relative aspect-[4/5] bg-gray-200 overflow-hidden transition-all duration-500">
-               <Image src="/syahrul.jpeg" alt="Syahrul Kurniawan" fill className="object-cover" />
-               {/* Overlay gradient */}
-               <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent mix-blend-multiply"></div>
+              <Image
+                src="/syahrul.jpeg"
+                alt="Syahrul Kurniawan"
+                fill
+                className="object-cover"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent mix-blend-multiply"></div>
             </div>
-            
+
             {/* Name Tag & Cursor */}
             <div className="absolute -bottom-6 -right-6 z-20">
-               <div className="relative">
-                  <MousePointer2 className="w-6 h-6 text-white fill-primary absolute -top-3 -left-3 z-20" />
-                  <div className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-sm shadow-lg transform rotate-[-4deg]">
-                   Syahrul Kurniawan
-                  </div>
-               </div>
+              <div className="relative">
+                <MousePointer2 className="w-6 h-6 text-white fill-primary absolute -top-3 -left-3 z-20" />
+                <div className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-sm shadow-lg transform rotate-[-4deg]">
+                  Syahrul Kurniawan
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

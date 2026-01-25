@@ -5,33 +5,62 @@ import { Button } from "./ui/button";
 
 const experiences = [
   {
-    role: "Product Designer",
-    company: "BetterPlace",
-    period: "May 2022 - Present",
-    location: "Bangalore, India",
-    description: "Designed key features for embedding in-platform data widgets, charts, and objects to generate technical reports. Designed interactions for users to",
+    role: "Fullstack Web Developer (React & Next.js)",
+    company: "PT Nutech Integrasi (Telkom Indonesia Group)",
+    period: "Jul 2023 – Jan 2026",
+    location: "Jakarta, Indonesia",
+    description: [
+      "Developed and maintained large-scale enterprise and government web applications using React and Next.js",
+      "Built master data and transaction modules, reusable tables, dynamic forms, and complex multi-step workflows",
+      "Implemented authentication & authorization systems (IAM, RBAC) with access & refresh tokens using Redis",
+      "Developed real-time features including Live Chat with Socket.io",
+      "Built dashboards with advanced filtering, data visualization, and export features (Excel & PDF)",
+      "Worked end-to-end across frontend, backend APIs, database queries, and performance optimization"
+    ],
     collaborators: []
   },
   {
-    role: "Product Designer",
-    company: "Smallcase",
-    period: "May 2022 - Aug 2022",
-    location: "Bangalore, India",
-    description: "Designed key features for embedding in-platform data widgets, charts, and objects to generate technical reports. Designed interactions for users to",
-    collaborators: [
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop",
-    ]
+    role: "Freelance Fullstack Web Developer (Next.js)",
+    company: "Freelance Experience",
+    period: "Sep 2023 – Present",
+    location: "Remote",
+    description: [
+      "Built custom Next.js web applications focused on performance, SEO, and scalability",
+      "Developed ERP systems, company profiles, multilingual websites, and e-commerce platforms",
+      "Worked with Supabase, Sanity (Headless CMS), Shopify, and WordPress",
+      "Delivered projects end-to-end from requirement gathering to production deployment",
+      "Selected Projects:",
+      "• Asna Academy — ERP system for sports school",
+      "• Omah Sabin Villa — WordPress to Next.js migration",
+      "• Relocation Moving — Multilingual SEO-focused website",
+      "• Vivus Petshop & Asai Jersey — Shopify e-commerce development"
+    ],
+    collaborators: []
   },
   {
-    role: "Product Designer",
-    company: "Toppr",
-    period: "May 2022 - Aug 2022",
-    location: "Bangalore, India",
-    description: "Designed key features for embedding in-platform data widgets, charts, and objects to generate technical reports. Designed interactions for users to",
+    role: "Web Developer (WordPress)",
+    company: "PT Otewe Maju Bersama",
+    period: "Dec 2021 – Apr 2023",
+    location: "Jakarta, Indonesia",
+    description: [
+      "Developed and maintained company websites using WordPress",
+      "Customized themes, landing pages, and marketing content",
+      "Implemented SEO best practices and performance improvements",
+      "Collaborated with marketing teams to support digital campaigns and social media initiatives"
+    ],
+    collaborators: []
+  },
+  {
+    role: "Web Developer (WordPress)",
+    company: "PT Trikarya Birawa",
+    period: "Nov 2020 – Nov 2021",
+    location: "Jakarta, Indonesia",
+    description: [
+      "Managed and optimized WordPress-based e-commerce websites",
+      "Customized product pages, landing pages, and content",
+      "Implemented SEO-optimized content to improve search visibility",
+      "Monitored ad performance and optimized marketplace listings"
+    ],
     collaborators: []
   }
 ];
@@ -82,9 +111,15 @@ export function ExperienceSection() {
                     </p>
                 </div>
                 <div className="md:col-span-8 space-y-6">
-                    <p className="text-gray-300 leading-relaxed">
-                        {exp.description}
-                    </p>
+                    <ul className="text-gray-300 leading-relaxed list-disc pl-5 space-y-2">
+                        {Array.isArray(exp.description) ? (
+                            exp.description.map((item, i) => (
+                                <li key={i} className={item.startsWith("Selected Projects") ? "font-bold mt-4 list-none -ml-5" : ""}>{item}</li>
+                            ))
+                        ) : (
+                             <p>{exp.description}</p>
+                        )}
+                    </ul>
                     
                     {exp.collaborators.length > 0 && (
                         <div className="space-y-3">
