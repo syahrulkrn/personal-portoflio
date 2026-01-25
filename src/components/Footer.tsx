@@ -3,7 +3,37 @@
 import { useEffect, useRef, useState } from "react";
 import Matter from "matter-js";
 import { ArrowUpRight, Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiJavascript, 
+  SiRedux, 
+  SiNestjs, 
+  SiSupabase 
+} from "react-icons/si";
 import Link from "next/link";
+
+interface TechItem {
+  id: number;
+  w: number;
+  h: number;
+  label: string;
+  bg: string;
+  text: string;
+  icon: any;
+  type: "circle" | "pill" | "rect";
+}
+
+const TECH_ITEMS: TechItem[] = [
+  { id: 0, w: 80, h: 80, label: "React", bg: "bg-[#61DAFB]", text: "text-black", icon: SiReact, type: "circle" },
+  { id: 1, w: 140, h: 60, label: "Next.js", bg: "bg-white", text: "text-black", icon: SiNextdotjs, type: "pill" },
+  { id: 2, w: 70, h: 70, label: "TypeScript", bg: "bg-[#3178C6]", text: "text-white", icon: SiTypescript, type: "rect" },
+  { id: 3, w: 70, h: 70, label: "JavaScript", bg: "bg-[#F7DF1E]", text: "text-black", icon: SiJavascript, type: "rect" },
+  { id: 4, w: 80, h: 80, label: "Redux", bg: "bg-[#764ABC]", text: "text-white", icon: SiRedux, type: "circle" },
+  { id: 5, w: 80, h: 80, label: "NestJS", bg: "bg-[#E0234E]", text: "text-white", icon: SiNestjs, type: "circle" },
+  { id: 6, w: 80, h: 80, label: "Supabase", bg: "bg-[#3ECF8E]", text: "text-white", icon: SiSupabase, type: "circle" },
+];
 
 export function Footer({ showPhysics = true }: { showPhysics?: boolean }) {
   const sceneRef = useRef<HTMLDivElement>(null);
@@ -43,15 +73,8 @@ export function Footer({ showPhysics = true }: { showPhysics?: boolean }) {
     
     // Let's purely use the engine and sync to DOM.
     
-    // Define items data
-    const items = [
-      { id: 0, w: 100, h: 100, label: "Avatar", color: "bg-blue-500", type: "circle" },
-      { id: 1, w: 140, h: 60, label: "Good Day", color: "bg-purple-500", type: "pill" },
-      { id: 2, w: 80, h: 80, label: "Peace", color: "bg-green-500", type: "circle" },
-      { id: 3, w: 160, h: 60, label: "LEARN", color: "bg-pink-500", type: "rect" },
-      { id: 4, w: 120, h: 50, label: "Attention", color: "bg-yellow-500", type: "rect" },
-      { id: 5, w: 90, h: 120, label: "Char", color: "bg-orange-500", type: "rect" },
-    ];
+    // Use the tech items defined outside
+    const items = TECH_ITEMS;
 
     // Create bodies
     const bodies = items.map((item, i) => {
@@ -163,55 +186,24 @@ export function Footer({ showPhysics = true }: { showPhysics?: boolean }) {
       >
         {/* DOM Elements for Physics Bodies */}
         {/* We absolutely position them at 0,0 and translate them via JS */}
-        <div 
-            ref={(el) => { if (el) itemsRef.current[0] = el; }}
-            className="absolute top-0 left-0 w-[100px] h-[100px] rounded-full bg-gradient-to-b from-gray-700 to-gray-900 p-1 ring-4 ring-white/5 shadow-2xl flex items-center justify-center select-none will-change-transform"
-        >
-             <span className="text-5xl">🧑‍💻</span>
-        </div>
-
-        <div 
-            ref={(el) => { if (el) itemsRef.current[1] = el; }}
-            className="absolute top-0 left-0 w-[140px] h-[60px] rounded-full bg-[#6366f1] border-2 border-white text-white font-bold flex items-center justify-center shadow-xl select-none will-change-transform text-center leading-none"
-        >
-            <div className="flex flex-col items-center">
-                <span className="text-[10px] uppercase tracking-wider">Have a</span>
-                <span className="text-lg">GOOD DAY</span>
+        {TECH_ITEMS.map((item, i) => (
+          <div
+            key={item.id}
+            ref={(el) => { if (el) itemsRef.current[i] = el; }}
+            className={`absolute top-0 left-0 flex items-center justify-center shadow-xl select-none will-change-transform border-2 border-white/20 ${
+              item.type === "circle" ? "rounded-full" : "rounded-xl"
+            } ${item.bg} ${item.text}`}
+            style={{
+              width: item.w,
+              height: item.h,
+            }}
+          >
+            <div className="flex flex-col items-center gap-1 pointer-events-none">
+              <item.icon className="w-8 h-8" />
+              {item.type !== "circle" && <span className="text-xs font-bold leading-none">{item.label}</span>}
             </div>
-        </div>
-
-        <div 
-            ref={(el) => { if (el) itemsRef.current[2] = el; }}
-            className="absolute top-0 left-0 w-[80px] h-[80px] rounded-full bg-[#22c55e] border-2 border-white flex items-center justify-center shadow-xl select-none will-change-transform"
-        >
-            <span className="text-4xl">✌️</span>
-        </div>
-
-        <div 
-            ref={(el) => { if (el) itemsRef.current[3] = el; }}
-            className="absolute top-0 left-0 w-[160px] h-[60px] rounded-xl bg-pink-600 border-2 border-white text-white font-black text-3xl flex items-center justify-center shadow-xl select-none will-change-transform italic tracking-tighter"
-        >
-            LEARN
-        </div>
-
-        <div 
-            ref={(el) => { if (el) itemsRef.current[4] = el; }}
-            className="absolute top-0 left-0 w-[120px] h-[50px] rounded-lg bg-yellow-400 border-2 border-black text-black font-bold flex items-center justify-center shadow-xl select-none will-change-transform"
-        >
-            <div className="flex items-center gap-2">
-                <span>⚠️</span>
-                <span className="text-xs">ATTENTION</span>
-            </div>
-        </div>
-
-        <div 
-            ref={(el) => { if (el) itemsRef.current[5] = el; }}
-            className="absolute top-0 left-0 w-[90px] h-[120px] rounded-xl bg-indigo-900 border-2 border-white/20 overflow-hidden shadow-xl select-none will-change-transform"
-        >
-            <div className="w-full h-full flex items-end justify-center pb-2 bg-gradient-to-t from-black/50 to-transparent">
-                 <span className="text-4xl">🤖</span>
-            </div>
-        </div>
+          </div>
+        ))}
       </div>
       )}
 

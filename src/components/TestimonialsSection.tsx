@@ -94,8 +94,8 @@ export function TestimonialsSection() {
            </div>
            
            {/* Gradient overlays for smooth fade at edges */}
-           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#020617] to-transparent z-10 pointer-events-none"></div>
-           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#020617] to-transparent z-10 pointer-events-none"></div>
+           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black/60 to-transparent z-10 pointer-events-none"></div>
+           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black/60 to-transparent z-10 pointer-events-none"></div>
         </div>
       </div>
     </section>

@@ -5,12 +5,13 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { Home, Briefcase, User, CircleHelp } from "lucide-react";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Works", href: "/#works" },
-  { name: "About", href: "/about" },
-  { name: "FAQ", href: "/#faq" },
+  { name: "Home", href: "/", icon: Home },
+  { name: "Works", href: "/#works", icon: Briefcase },
+  { name: "About", href: "/about", icon: User },
+  { name: "FAQ", href: "/#faq", icon: CircleHelp },
 ];
 
 export function Navbar() {
@@ -35,10 +36,11 @@ export function Navbar() {
             key={item.name}
             href={item.href}
             className={cn(
-              "px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors rounded-full hover:bg-white/10"
+              "px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors rounded-full hover:bg-white/10 flex items-center gap-2"
             )}
           >
-            {item.name}
+            <item.icon className="w-4 h-4" />
+            <span className="hidden sm:inline">{item.name}</span>
           </Link>
         ))}
 

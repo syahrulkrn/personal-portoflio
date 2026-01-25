@@ -6,6 +6,7 @@ import { AboutDetails } from "@/components/AboutDetails";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { motion } from "framer-motion";
 import { Sun } from "lucide-react";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
@@ -19,9 +20,9 @@ export default function AboutPage() {
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: "spring", duration: 1.5 }}
-                className="w-20 h-20 bg-emerald-300 rounded-full flex items-center justify-center shadow-[0_0_40px_-10px_rgba(110,231,183,0.5)]"
+                className="w-20 h-20 bg-gradient-to-br from-primary/40 to-primary/10 rounded-full flex items-center justify-center "
             >
-                <Sun className="w-12 h-12 text-emerald-950 animate-[spin_10s_linear_infinite]" />
+                <Sun className="w-12 h-12 text-primary animate-[spin_10s_linear_infinite]" />
             </motion.div>
 
             <motion.div
@@ -48,10 +49,10 @@ export default function AboutPage() {
             {/* Desktop View */}
             <div className="hidden md:flex flex-row justify-center items-center gap-0 group/gallery">
                 {[
-                    { emoji: "💻", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
-                    { emoji: "🌊", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
-                    { emoji: "🍳", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
-                    { emoji: "🏠", color: "bg-gradient-to-br from-primary/40 to-primary/10" }
+                    { src: "/syahrul-berlari.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { src: "/syahrul-laptopan.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { src: "/syahrul-bola.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { src: "/syahrul-kitsune.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" }
                 ].map((item, index) => (
                     <motion.div
                         key={index}
@@ -68,13 +69,14 @@ export default function AboutPage() {
                         `}
                         style={{ zIndex: index }}
                     >
-                         {/* Placeholder for images - using gradients and emojis for now */}
-                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-                         
-                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                            <span className="text-6xl filter drop-shadow-lg transform transition-transform group-hover/gallery:scale-110 duration-500">
-                                {item.emoji}
-                            </span>
+                         {/* Image */}
+                         <div className="absolute inset-0">
+                            <Image 
+                                src={item.src} 
+                                alt={`Gallery image ${index + 1}`} 
+                                fill 
+                                className="object-cover transition-transform duration-500 group-hover/gallery:scale-110" 
+                            />
                          </div>
                          
                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover/gallery:opacity-40 transition-opacity" />
@@ -95,14 +97,10 @@ export default function AboutPage() {
                     style={{ width: "max-content" }}
                 >
                     {[
-                        { emoji: "💻", color: "bg-blue-900/20" },
-                        { emoji: "🌊", color: "bg-emerald-900/20" },
-                        { emoji: "🍳", color: "bg-orange-900/20" },
-                        { emoji: "🏠", color: "bg-purple-900/20" },
-                        { emoji: "💻", color: "bg-blue-900/20" },
-                        { emoji: "🌊", color: "bg-emerald-900/20" },
-                        { emoji: "🍳", color: "bg-orange-900/20" },
-                        { emoji: "🏠", color: "bg-purple-900/20" }
+                    { src: "/syahrul-berlari.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { src: "/syahrul-laptopan.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { src: "/syahrul-bola.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" },
+                    { src: "/syahrul-kitsune.jpeg", color: "bg-gradient-to-br from-primary/40 to-primary/10" }
                     ].map((item, index) => (
                         <div
                             key={index}
@@ -112,12 +110,14 @@ export default function AboutPage() {
                                 flex-shrink-0
                             `}
                         >
-                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-                             
-                             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                                <span className="text-6xl filter drop-shadow-lg">
-                                    {item.emoji}
-                                </span>
+                             {/* Image */}
+                             <div className="absolute inset-0">
+                                <Image 
+                                    src={item.src} 
+                                    alt={`Gallery image ${index + 1}`} 
+                                    fill 
+                                    className="object-cover" 
+                                />
                              </div>
                              
                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />

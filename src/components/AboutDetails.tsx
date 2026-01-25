@@ -98,7 +98,7 @@ export function AboutDetails() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="h-32 bg-black rounded-3xl border border-white/5 flex items-center justify-center relative overflow-hidden group hover:border-white/10 transition-colors"
+                className="h-32 bg-gradient-to-br from-primary/40 to-primary/10 rounded-3xl border border-white/5 flex items-center justify-center relative overflow-hidden group hover:border-white/10 transition-colors"
             >
                  <div className="relative z-10 w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-transform duration-300">
                      <Coffee className="w-8 h-8 text-white" />
