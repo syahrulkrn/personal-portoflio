@@ -64,7 +64,7 @@ export function FAQSection() {
         </div>
 
         {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-8">
           {/* Left Side: Call to Action Card */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -77,10 +77,15 @@ export function FAQSection() {
                 Have any more questions or want to start collaborating?
               </h3>
               
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-auto flex-1 min-h-[300px] group">
-                {/* Image Placeholder */}
-                 <div className="absolute inset-0 bg-gray-800 flex items-center justify-center">
-                    <span className="text-6xl">🎧</span>
+              <div className="relative rounded-2xl overflow-hidden aspect-[3/4] md:aspect-auto flex-1 min-h-[300px] group">
+                {/* Image */}
+                 <div className="absolute inset-0">
+                    <Image 
+                        src="/syahrul-kitsune.jpeg" 
+                        alt="Contact" 
+                        fill 
+                        className="object-cover" 
+                    />
                  </div>
                  {/* Overlay */}
                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
@@ -92,8 +97,8 @@ export function FAQSection() {
                     </Button>
                  </div>
                  
-                 <div className="absolute bottom-2 left-0 w-full text-center">
-                    <span className="text-[10px] text-gray-400">* Response time is typically around 12 hours</span>
+                 <div className="absolute bottom-2 left-0 w-full text-center z-10">
+                    <span className="text-[10px] text-gray-200 drop-shadow-md">* Response time is typically around 12 hours</span>
                  </div>
               </div>
             </div>
