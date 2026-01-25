@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Book, MapPin, Coffee, Moon, Plane, Sparkles, Figma, Code2, PenTool, Sun } from "lucide-react";
+import Image from "next/image";
 
 export function AboutDetails() {
   return (
@@ -149,7 +150,7 @@ export function AboutDetails() {
                 <div className="absolute bottom-6 left-6 z-10 flex items-center gap-3">
                     <div className="bg-gray-800/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 flex items-center gap-2">
                         <MapPin className="w-4 h-4 text-red-500 fill-red-500" />
-                        <span className="text-sm font-medium">Berlin, Germany</span>
+                        <span className="text-sm font-medium">Jakarta, Indonesia</span>
                     </div>
                 </div>
 
@@ -157,8 +158,8 @@ export function AboutDetails() {
                     <div className="w-4 h-4 bg-emerald-500 rounded-full animate-ping absolute inset-0"></div>
                     <div className="w-4 h-4 bg-emerald-500 rounded-full relative border-2 border-white shadow-lg"></div>
                     <div className="w-12 h-12 rounded-full bg-gray-200 border-2 border-white absolute -top-14 -left-4 overflow-hidden shadow-xl">
-                         <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                            <span className="text-xl">😎</span>
+                         <div className="w-full h-full bg-gradient-to-br  flex items-center justify-center">
+                            <span className="text-xl"><Image src="/syahrul.jpeg" alt="Profile" width={40} height={40} className="rounded-full" /></span>
                          </div>
                     </div>
                 </div>

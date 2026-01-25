@@ -5,13 +5,14 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Home, Briefcase, User, CircleHelp } from "lucide-react";
+import { Home, Briefcase, User, CircleHelp, BookOpen } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "Works", href: "/#works", icon: Briefcase },
   { name: "About", href: "/about", icon: User },
-  { name: "FAQ", href: "/#faq", icon: CircleHelp },
+  { name: "Blog", href: "/blog", icon: BookOpen },
+  // { name: "FAQ", href: "/#faq", icon: CircleHelp },
 ];
 
 export function Navbar() {
