@@ -9,20 +9,20 @@ import { Button } from "@/components/ui/button";
 export function BlogSection() {
   const blogs = [
     {
-      title: "Overcoming the Articulation Barrier in Gen AI",
-      href: "#",
-      featured: false,
-    },
-    {
-      title: "Making design system from scratch for B2C products",
-      href: "#",
-      featured: false,
-    },
-    {
-      title: "How to make design system from scratch for SAAS products",
-      href: "#",
+      title: "How to Set Up React: A Complete Guide for Beginners",
+      href: "/blog/setup-react-guide-beginners",
       featured: true,
     },
+    {
+      title: "Typescript for beginners. Yes you’re right, for beginners.",
+      href: "/blog/learned-typescript-last-night",
+      featured: false,
+    },
+    {
+      title: "Menjadi The Most Progressive Student di Binar Academy",
+      href: "/blog/the-most-progressive-student-binar",
+      featured: false,
+    }
   ];
 
   return (

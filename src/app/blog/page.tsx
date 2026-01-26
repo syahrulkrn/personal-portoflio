@@ -8,34 +8,19 @@ import { motion } from "framer-motion";
 
 const blogs = [
   {
-    title: "Overcoming the Articulation Barrier in Gen AI",
-    slug: "overcoming-articulation-barrier-gen-ai",
-    desc: "How we bridged the gap between human intent and AI generation."
+    title: "How to Set Up React: A Complete Guide for Beginners",
+    slug: "setup-react-guide-beginners",
+    desc: "A step-by-step guide to installing Node.js, creating a React project, and running your first development server."
   },
   {
-    title: "Making design system from scratch for B2C products",
-    slug: "design-system-scratch-b2c",
-    desc: "A step-by-step guide to building scalable design systems."
+    title: "Typescript for beginners. Yes you’re right, for beginners.",
+    slug: "learned-typescript-last-night",
+    desc: "Understanding the basics of TypeScript, Static vs Dynamic Typing, and how TypeScript works."
   },
   {
-    title: "How to make design system from scratch for SAAS products",
-    slug: "design-system-saas",
-    desc: "Key considerations when designing for enterprise software."
-  },
-  {
-    title: "Data analytics app",
-    slug: "data-analytics-app",
-    desc: "Building a comprehensive dashboard for data visualization."
-  },
-  {
-    title: "The Future of AI in Web Development",
-    slug: "future-ai-web-dev",
-    desc: "Exploring how AI tools are reshaping the developer workflow."
-  },
-  {
-    title: "Optimizing Next.js Performance",
-    slug: "optimizing-nextjs",
-    desc: "Best practices for achieving 100 lighthouse scores."
+    title: "Menjadi The Most Progressive Student di Binar Academy",
+    slug: "the-most-progressive-student-binar",
+    desc: "Rasanya sangat senang bisa graduate di Binar Academy sebagai Fullstack Web Developer setelah lebih dari 6 bulan belajar di Binar bersama Faciliator dan teman-teman yang lain."
   }
 ];
 

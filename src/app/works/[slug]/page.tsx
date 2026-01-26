@@ -49,6 +49,7 @@ const projects: Record<string, Project> = {
             </p>
         </>
     ),
+    link: "https://asna-academy-pink.vercel.app/",
     content: (
         <div className="space-y-12">
             <div className="space-y-6">
@@ -106,30 +107,7 @@ const projects: Record<string, Project> = {
                 </div>
             </div>
 
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Project Structure</h2>
-                <div className="bg-[#111] p-6 rounded-xl border border-white/10 overflow-x-auto">
-                    <pre className="text-sm text-gray-400 font-mono">
-{`asna-academy-new/
-├── app/                  # Application Routes
-│   ├── (auth)/           # Authentication Routes
-│   ├── (dashboard)/      # Protected Dashboard Routes
-│   ├── api/              # API Routes
-│   └── layout.tsx        # Main Layout
-├── components/           # Reusable UI Components
-│   ├── ui/               # Base Components (Shadcn UI)
-│   ├── dashboard/        # Dashboard Specific Components
-│   ├── forms/            # Form Components
-│   └── shared/           # Shared Components
-├── lib/                  # Utilities & Helpers
-│   ├── supabase/         # Supabase Config
-│   ├── store/            # Zustand Store
-│   └── utils.ts          # Utility Functions
-├── public/               # Static Assets
-└── styles/               # Global Styles`}
-                    </pre>
-                </div>
-            </div>
+
         </div>
     )
   },
@@ -386,6 +364,224 @@ const projects: Record<string, Project> = {
                         "React for UI components",
                         "Sanity as the headless CMS",
                         "Deployed on a modern hosting platform"
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-gray-400">
+                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                             <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+  },
+  "vivus-pets": {
+    title: "Vivus Pets – Shopify E-commerce Website",
+    company: "Vivus Pets",
+    year: "2024",
+    role: "Shopify Developer",
+    duration: "2024",
+    tools: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
+    link: "https://www.vivuspets.com/",
+    stats: [
+      "Cleaner and more modern UI.",
+      "Improved usability and mobile experience.",
+      "Faster page load performance.",
+      "More stable and user-friendly shopping flow.",
+      "Increased potential for higher conversion rates."
+    ],
+    heroImage: "/vivuspets.png",
+    overview: (
+        <>
+            <h2 className="text-3xl font-serif">Overview</h2>
+            <p className="text-lg text-gray-400 leading-relaxed">
+                Developed and enhanced the Vivus Pets Shopify website by focusing on UI redesign, feature improvements, bug fixing, and user experience optimization to create a faster, more intuitive, and conversion-focused e-commerce experience.
+            </p>
+        </>
+    ),
+    content: (
+        <div className="space-y-12">
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">What I Did</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Customized and extended a Shopify theme using Liquid, HTML, CSS, and JavaScript</li>
+                    <li>Redesigned key pages including Homepage, Collection Pages, and Product Detail Pages</li>
+                    <li>Improved responsive design for mobile and tablet devices</li>
+                    <li>Added and enhanced e-commerce features such as product variants, cart behavior, and product recommendations</li>
+                    <li>Fixed UI, functional, and performance-related bugs</li>
+                    <li>Optimized site performance through image optimization and code cleanup</li>
+                    <li>Improved navigation, product information clarity, and checkout flow</li>
+                </ul>
+            </div>
+
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Result</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Cleaner and more modern UI</li>
+                    <li>Improved usability and mobile experience</li>
+                    <li>Faster page load performance</li>
+                    <li>More stable and user-friendly shopping flow</li>
+                    <li>Increased potential for higher conversion rates</li>
+                </ul>
+            </div>
+             
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Tech Stack</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                        "Shopify Platform",
+                        "Liquid Templating Language",
+                        "HTML5 & CSS3",
+                        "JavaScript (ES6+)"
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-gray-400">
+                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                             <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+  },
+  "ceisa": {
+    title: "CEISA – Trade Module Development",
+    company: "CEISA",
+    
+    year: "2023",
+    role: "Frontend Developer",
+    duration: "2023",
+    tools: ["React", "Tailwind CSS", "Antd", "Axios"],
+    stats: [
+      "Improved efficiency and reliability of Trade workflows.",
+      "Reduced form errors and failed submissions.",
+      "Enhanced stability across interconnected modules.",
+      "Delivered a smoother and more intuitive user experience."
+    ],
+    heroImage: "/ceisa.png",
+    overview: (
+        <>
+            <h2 className="text-3xl font-serif">Overview</h2>
+            <p className="text-lg text-gray-400 leading-relaxed">
+                Contributed to the CEISA project by developing complex interactive forms within the Trade module, handling API integrations across multiple modules, and performing bug fixing to improve system stability, data accuracy, and overall user experience.
+            </p>
+        </>
+    ),
+    content: (
+        <div className="space-y-12">
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">What I Did</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Built complex, dynamic, and validated interactive forms for the Trade module</li>
+                    <li>Implemented conditional logic, real-time validation, and robust error handling</li>
+                    <li>Integrated multiple APIs to support seamless data flow between modules</li>
+                    <li>Fixed bugs related to form submission, API response handling, and state management</li>
+                    <li>Improved data consistency and reduced user input errors</li>
+                    <li>Collaborated with backend teams to ensure reliable API communication</li>
+                </ul>
+            </div>
+
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Result</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Improved efficiency and reliability of Trade workflows</li>
+                    <li>Reduced form errors and failed submissions</li>
+                    <li>Enhanced stability across interconnected modules</li>
+                    <li>Delivered a smoother and more intuitive user experience</li>
+                </ul>
+            </div>
+             
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Tech Stack</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                        "React & Tailwind CSS",
+                        "Ant Design (UI Library)",
+                        "Axios (API Integration)",
+                        "Complex Form Handling"
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-gray-400">
+                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                             <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+  },
+  "pma": {
+    title: "Project Management Web App (PMA)",
+    company: "PMA",
+    year: "2024",
+    role: "Fullstack Developer",
+    duration: "2024",
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Antd", "Axios", "SQL"],
+    stats: [
+      "Enabled structured and efficient project planning workflows",
+      "Improved visibility into project progress and performance",
+      "Delivered reliable and scalable APIs supporting multiple modules",
+      "Provided a clear and user-friendly interface for project stakeholders"
+    ],
+    heroImage: "/pma.png",
+    overview: (
+        <>
+            <h2 className="text-3xl font-serif">Overview</h2>
+            <p className="text-lg text-gray-400 leading-relaxed">
+                Worked on the Project Management Web App (PMA) by developing core project modules, building multi-step forms, designing data-driven dashboards, and implementing CRUD APIs using pure SQL to support project planning, tracking, and execution.
+            </p>
+        </>
+    ),
+    content: (
+        <div className="space-y-12">
+            <div className="space-y-8">
+                <h2 className="text-3xl font-serif">What I Did</h2>
+                
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white">Projects Module</h3>
+                    <ul className="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Built multi-step and validated forms for project creation and updates</li>
+                        <li>Developed data tables with sorting, filtering, and pagination</li>
+                        <li>Implemented full CRUD APIs using pure SQL for project data management</li>
+                    </ul>
+                </div>
+
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white">Timeline Module</h3>
+                    <ul className="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Developed UI slicing and layouts for Gantt Chart, S-Curve, Timeline Plan, Realization Tracking, Issues Management, and People Assignment</li>
+                        <li>Ensured accurate data mapping between timeline views and backend APIs</li>
+                    </ul>
+                </div>
+
+                <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white">API Development</h3>
+                    <ul className="list-disc list-inside text-gray-400 space-y-2">
+                        <li>Built and maintained CRUD APIs for all related modules</li>
+                        <li>Ensured data consistency, validation, and error handling across the system</li>
+                        <li>Optimized API performance for large project datasets</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Result</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Enabled structured and efficient project planning workflows</li>
+                    <li>Improved visibility into project progress and performance</li>
+                    <li>Delivered reliable and scalable APIs supporting multiple modules</li>
+                    <li>Provided a clear and user-friendly interface for project stakeholders</li>
+                </ul>
+            </div>
+             
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Tech Stack</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                        "Next.js & TypeScript",
+                        "Tailwind CSS & Ant Design",
+                        "Axios (API Integration)",
+                        "Pure SQL (Backend)"
                     ].map((item, i) => (
                         <div key={i} className="flex items-start gap-3 text-gray-400">
                              <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />

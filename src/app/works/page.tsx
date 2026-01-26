@@ -19,7 +19,7 @@ interface WorkProject {
 const professionalProjects: WorkProject[] = [
   {
     company: "Asna Academy",
-    year: "2024",
+    year: "2026",
     title: "Asna Academy - Sports Management",
     slug: "asna-academy",
     description: "A comprehensive platform for managing sports academies, including registration, attendance, finance, and e-commerce.",
@@ -27,7 +27,7 @@ const professionalProjects: WorkProject[] = [
   },
   {
     company: "Omahsabin",
-    year: "2024",
+    year: "2023",
     title: "Omahsabin Luxury Villas – Website Redesign",
     slug: "omahsabin",
     description: "Redesigned the Omahsabin Luxury Villas website with Next.js, Sanity CMS, and third-party booking integration to improve performance, SEO, and mobile experience.",
@@ -35,7 +35,7 @@ const professionalProjects: WorkProject[] = [
   },
   {
     company: "Pos Indonesia",
-    year: "2024",
+    year: "2025",
     title: "POS GLID Web App",
     slug: "posind",
     description: "Development of core modules, Master Data, Transactions, IAM, and real-time Live Chat.",
@@ -47,6 +47,30 @@ const professionalProjects: WorkProject[] = [
     title: "Relocation Moving",
     slug: "relocation-moving",
     description: "Built a multilingual marketing website using Next.js and Sanity (Headless CMS).",
+    category: "Web App"
+  },
+  {
+    company: "Vivus Pets",
+    year: "2024",
+    title: "Vivus Pets – Shopify E-commerce Website",
+    slug: "vivus-pets",
+    description: "Redesigned and enhanced the Shopify e-commerce experience with custom Liquid development, UI improvements, and performance optimization.",
+    category: "E-commerce"
+  },
+  {
+    company: "CEISA",
+    year: "2023",
+    title: "CEISA – Trade Module Development",
+    slug: "ceisa",
+    description: "Developed complex interactive forms and handled API integrations for the Trade module to improve system stability and data accuracy.",
+    category: "Web App"
+  },
+  {
+    company: "PMA",
+    year: "2024",
+    title: "Project Management Web App (PMA)",
+    slug: "pma",
+    description: "Developed core project modules, multi-step forms, data-driven dashboards, and CRUD APIs using pure SQL for project planning and tracking.",
     category: "Web App"
   },
 ];
@@ -81,7 +105,7 @@ export default function WorksListingPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-5xl md:text-7xl font-serif"
             >
-                Selected Works
+                Works
             </motion.h1>
             <motion.p
                 initial={{ opacity: 0, y: 20 }}
