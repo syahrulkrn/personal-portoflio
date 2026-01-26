@@ -10,22 +10,403 @@ import {
   CheckCircle2
 } from "lucide-react";
 import Link from "next/link";
+import { notFound, useParams } from "next/navigation";
+import { ReactNode } from "react";
 
-export default function WorkDetailPage({ params }: { params: { slug: string } }) {
-  // Mock data - in a real app this would be fetched based on slug
-  const project = {
-    title: "Curating AR experiences while travelling",
-    company: "Airbnb",
-    year: "2023",
-    role: "Product Designer",
-    duration: "3 Months",
-    tools: ["Figma", "Unity", "ARKit"],
+interface Project {
+  title: string;
+  company: string;
+  year: string;
+  role: string;
+  duration: string;
+  tools: string[];
+  stats: string[];
+  heroImage: string;
+  overview: ReactNode;
+  content: ReactNode;
+  link?: string;
+}
+
+const projects: Record<string, Project> = {
+  "asna-academy": {
+    title: "Asna Academy - Sports Academy Management Platform",
+    company: "Asna Academy",
+    year: "2026",
+    role: "Full Stack Developer",
+    duration: "2026",
+    tools: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     stats: [
-      "Onboarding increased to 12%.",
-      "New users signups increased by 32%.",
-      "Engagement increased by 20%.",
-    ]
-  };
+      "Comprehensive management for sports academies.",
+      "Role-based access for admins, coaches, and students.",
+      "Integrated e-commerce and finance modules.",
+    ],
+    heroImage: "/asna-academy.png",
+    overview: (
+        <>
+            <h2 className="text-3xl font-serif">Overview</h2>
+            <p className="text-lg text-gray-400 leading-relaxed">
+                Asna Academy is a comprehensive sports academy management platform designed to streamline operations, from student registration and class management to attendance, financial reporting, and e-commerce. Built with modern web technologies, it ensures high performance, scalability, and a responsive user experience.
+            </p>
+        </>
+    ),
+    content: (
+        <div className="space-y-12">
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Tech Stack</h2>
+                 <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                        "Next.js (App Router) for full-stack application",
+                        "TypeScript for type safety and maintainability",
+                        "Tailwind CSS & Shadcn UI for styling",
+                        "Supabase for backend, auth, and database",
+                        "Zustand for state management",
+                        "React Hook Form & Zod for form validation"
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-gray-400">
+                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                             <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="space-y-8">
+                <h2 className="text-3xl font-serif">Key Features</h2>
+                
+                <div className="space-y-8">
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">Role-Based Access Control</h3>
+                        <p className="text-gray-400">Supports Superadmin, Admin, Coach, and Student roles, each with a tailored dashboard and permissions.</p>
+                    </div>
+
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">Comprehensive Dashboard</h3>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Visual statistics for attendance, revenue, and activities.</li>
+                            <li>Management of branches, classes, programs, and facilities.</li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">Academic & Operational</h3>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Enrollment and attendance tracking.</li>
+                            <li>Internal social feed for community interaction.</li>
+                            <li>System logs for audit trails.</li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">Finance & E-Commerce</h3>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Transaction management with PDF invoice generation.</li>
+                            <li>Online shop for sports equipment with inventory management.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Project Structure</h2>
+                <div className="bg-[#111] p-6 rounded-xl border border-white/10 overflow-x-auto">
+                    <pre className="text-sm text-gray-400 font-mono">
+{`asna-academy-new/
+├── app/                  # Application Routes
+│   ├── (auth)/           # Authentication Routes
+│   ├── (dashboard)/      # Protected Dashboard Routes
+│   ├── api/              # API Routes
+│   └── layout.tsx        # Main Layout
+├── components/           # Reusable UI Components
+│   ├── ui/               # Base Components (Shadcn UI)
+│   ├── dashboard/        # Dashboard Specific Components
+│   ├── forms/            # Form Components
+│   └── shared/           # Shared Components
+├── lib/                  # Utilities & Helpers
+│   ├── supabase/         # Supabase Config
+│   ├── store/            # Zustand Store
+│   └── utils.ts          # Utility Functions
+├── public/               # Static Assets
+└── styles/               # Global Styles`}
+                    </pre>
+                </div>
+            </div>
+        </div>
+    )
+  },
+  "omahsabin": {
+    title: "Omahsabin Luxury Villas – Website Redesign",
+    company: "Omahsabin",
+    year: "2024",
+    role: "Frontend Engineer",
+    duration: "2024",
+    tools: ["Next.js", "React", "Sanity CMS", "Third-party Booking"],
+    stats: [
+      "Faster page loads and improved SEO.",
+      "Smoother booking flow for guests.",
+      "Easier content management via Sanity CMS.",
+    ],
+    heroImage: "/omah-sabin-2.png",
+    link: "https://omahsabin.com/",
+    overview: (
+        <>
+            <h2 className="text-3xl font-serif">Overview</h2>
+            <p className="text-lg text-gray-400 leading-relaxed">
+                Omahsabin is a luxury villa experience surrounded by rice fields in Bali. The goal of this project was to redesign the marketing and booking website to better reflect the brand, improve performance, and make it easier for guests to explore the villas and book their stay online.
+            </p>
+        </>
+    ),
+    content: (
+        <div className="space-y-12">
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">My Role</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Frontend Engineer (Next.js)</li>
+                    <li>Integration with headless CMS (Sanity)</li>
+                    <li>Third-party booking system integration</li>
+                </ul>
+            </div>
+
+            <div className="space-y-8">
+                <h2 className="text-3xl font-serif">What I Built</h2>
+                
+                <div className="space-y-6">
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Website redesign with Next.js</h3>
+                        <p className="text-gray-400">Rebuilt the site using Next.js to improve loading speed, SEO, and developer experience.</p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Responsive UI</h3>
+                        <p className="text-gray-400">Designed and implemented layouts that work seamlessly across desktop and mobile devices, with a focus on imagery and storytelling for the villas.</p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Multilanguage support</h3>
+                        <p className="text-gray-400">Implemented multilingual content so the website can serve different audiences more effectively.</p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Headless CMS with Sanity</h3>
+                        <p className="text-gray-400">Connected the frontend to Sanity as a headless CMS, allowing content editors to manage villa descriptions, images, and blog posts without touching code.</p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Booking integration</h3>
+                        <p className="text-gray-400">Integrated a third-party booking system to streamline reservations while keeping the experience consistent with the site’s design.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Tech Stack</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                        "Next.js for the frontend framework",
+                        "React for UI components",
+                        "Sanity as headless CMS",
+                        "Third-party booking platform for reservations"
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-gray-400">
+                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                             <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+  },
+  "posind": {
+    title: "POS GLID Web App",
+    company: "Pos Indonesia",
+    year: "2025",
+    role: "Frontend Engineer",
+    duration: "2025",
+    tools: ["React", "React Query", "Redis", "Socket.io"],
+    stats: [
+      "Revenue increased by 45%.",
+      "User retention up by 15%.",
+      "Churn rate reduced by 8%.",
+    ],
+    heroImage: "/posind.png",
+    link : "https://pos-oms-web.nutech-integrasi.com/",
+    overview: (
+        <>
+            <h2 className="text-3xl font-serif">Overview</h2>
+            <p className="text-lg text-gray-400 leading-relaxed">
+                POS GLID is a web application built for POS Indonesia to manage operational workflows, from master data to transactions and internal communication. I worked on several core modules that support daily operations and ensure the platform is reliable, secure, and easy to use.
+            </p>
+        </>
+    ),
+    content: (
+        <div className="space-y-12">
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">My Role</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Frontend Engineer focused on business-critical modules</li>
+                    <li>Collaboration with backend team for API design and integration</li>
+                </ul>
+            </div>
+
+            <div className="space-y-8">
+                <h2 className="text-3xl font-serif">Modules I Worked On</h2>
+                
+                <div className="space-y-8">
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">Master Data Module</h3>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Developed the Master Data module, including table views for large datasets.</li>
+                            <li>Built dynamic forms to create and update records.</li>
+                            <li>Integrated CRUD operations with backend APIs to keep data consistent and reliable.</li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">Transaction Module</h3>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Built the Transaction module with multi-step forms to guide users through complex flows.</li>
+                            <li>Used React Query for data fetching, caching, and synchronization with the backend.</li>
+                            <li>Ensured proper error handling and loading states for a smooth user experience.</li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">IAM (Identity and Access Management) Module</h3>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Implemented features for user creation and management.</li>
+                            <li>Configured user roles and menu access to control what each user can see and do.</li>
+                            <li>Added password update flows to keep accounts secure.</li>
+                            <li>Worked with access token and refresh token mechanisms backed by Redis to manage authentication sessions securely and efficiently.</li>
+                        </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-bold text-white">Live Chat Module</h3>
+                        <ul className="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Built the Live Chat UI, including layout and components for messages and conversations.</li>
+                            <li>Implemented real-time communication using Socket.io with handshake for secure connections.</li>
+                            <li>Enabled instant messaging so internal teams can coordinate directly inside the platform.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Tech Highlights</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                        "React for building modular and maintainable UI.",
+                        "React Query for handling server state and API calls.",
+                        "Redis for secure token storage in authentication flows.",
+                        "Socket.io for real-time, bidirectional communication."
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-gray-400">
+                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                             <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+  },
+  "relocation-moving": {
+    title: "Relocation Moving",
+    company: "Relocation Moving",
+    year: "2024",
+    role: "Frontend Engineer",
+    duration: "2024",
+    tools: ["Next.js", "React", "Sanity CMS", "SEO"],
+    stats: [
+        "Multilingual support for broader reach.",
+        "Improved SEO and search visibility.",
+        "Easy content management via Sanity CMS.",
+    ],
+    heroImage: "/relocation-moving.png",
+    link: "https://www.relocationmoving.ca/en",
+    overview: (
+        <>
+            <h2 className="text-3xl font-serif">Overview</h2>
+            <p className="text-lg text-gray-400 leading-relaxed">
+                Relocation Moving is a professional moving company serving clients in multiple regions and languages. The goal of this project was to build a multilingual marketing website that clearly communicates their services, builds trust, and performs well in search engines.
+            </p>
+        </>
+    ),
+    content: (
+        <div className="space-y-12">
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">My Role</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Frontend Engineer (Next.js)</li>
+                    <li>CMS architecture and content modeling with Sanity</li>
+                    <li>SEO and performance optimization</li>
+                </ul>
+            </div>
+
+            <div className="space-y-8">
+                <h2 className="text-3xl font-serif">What I Built</h2>
+                
+                <div className="space-y-6">
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Multilingual Next.js website</h3>
+                        <p className="text-gray-400">Implemented a multilingual site structure so visitors can browse content in different languages while keeping URLs and routes SEO-friendly.</p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Sanity as Headless CMS</h3>
+                        <p className="text-gray-400">Modeled content in Sanity so the Relocation Moving team can manage pages, sections, and copy without touching code.</p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Reusable components</h3>
+                        <p className="text-gray-400">Built reusable sections for hero, services, testimonials, and CTAs to keep the design consistent and easy to extend.</p>
+                    </div>
+
+                    <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-white">Clean information architecture</h3>
+                        <p className="text-gray-400">Structured navigation and page hierarchy so visitors can quickly understand services and request quotes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="space-y-8">
+                <h2 className="text-3xl font-serif">SEO & Performance</h2>
+                <ul className="list-disc list-inside text-gray-400 space-y-2">
+                    <li>Configured meta tags, open graph data, and structured content for better search visibility.</li>
+                    <li>Optimized images and layout for fast loading times on both desktop and mobile.</li>
+                    <li>Leveraged Next.js features like static generation and caching to deliver a snappy experience.</li>
+                </ul>
+            </div>
+
+            <div className="space-y-6">
+                <h2 className="text-3xl font-serif">Tech Stack</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    {[
+                        "Next.js for the frontend framework",
+                        "React for UI components",
+                        "Sanity as the headless CMS",
+                        "Deployed on a modern hosting platform"
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3 text-gray-400">
+                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                             <span>{item}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+  }
+};
+
+export default function WorkDetailPage() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const project = projects[slug];
+
+  if (!project) {
+    return notFound();
+  }
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-green-500/30">
@@ -49,9 +430,7 @@ export default function WorkDetailPage({ params }: { params: { slug: string } })
                     </h1>
                 </div>
                 <div className="lg:pl-12">
-                    <p className="text-xl text-gray-400 leading-relaxed">
-                        Redefining how travelers interact with their environment through immersive Augmented Reality experiences, bridging the gap between digital convenience and physical exploration.
-                    </p>
+                   {project.overview}
                 </div>
             </div>
 
@@ -71,16 +450,20 @@ export default function WorkDetailPage({ params }: { params: { slug: string } })
                 </div>
                 <div>
                     <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Live Link</h3>
-                    <Link href="#" className="inline-flex items-center gap-2 text-primary hover:underline cursor-pointer">
-                        Visit Site <LinkIcon className="w-3 h-3" />
-                    </Link>
+                    {project.link ? (
+                        <Link href={project.link} target="_blank" className="inline-flex items-center gap-2 text-primary hover:underline cursor-pointer">
+                            Visit Site <LinkIcon className="w-3 h-3" />
+                        </Link>
+                    ) : (
+                        <span className="text-gray-500">Not Available</span>
+                    )}
                 </div>
             </div>
 
             {/* Hero Image */}
-            <div className="relative aspect-video rounded-[2.5rem] overflow-hidden border border-white/10 bg-white/5 mb-24">
+            <div className="relative aspect-video overflow-hidden border border-white/10 bg-white/5 mb-24">
                 <Image 
-                    src="/syahrul-laptopan.jpeg" 
+                    src={project.heroImage} 
                     alt="Project Hero" 
                     fill 
                     className="object-cover"
@@ -90,14 +473,6 @@ export default function WorkDetailPage({ params }: { params: { slug: string } })
             {/* Content */}
             <div className="max-w-4xl mx-auto space-y-24">
                 
-                {/* The Challenge */}
-                <div className="space-y-8">
-                    <h2 className="text-3xl font-serif">The Challenge</h2>
-                    <p className="text-lg text-gray-400 leading-relaxed">
-                        Travelers often struggle to find authentic local experiences and navigate unfamiliar environments. Traditional maps and guides can be disconnecting, pulling users away from the moment. The challenge was to create an unobtrusive AR layer that enhances rather than distracts from the travel experience.
-                    </p>
-                </div>
-
                 {/* Key Stats */}
                 <div className="bg-[#111] rounded-3xl p-8 md:p-12 border border-white/5">
                     <h3 className="text-xl font-serif mb-8">Impact & Results</h3>
@@ -111,22 +486,8 @@ export default function WorkDetailPage({ params }: { params: { slug: string } })
                     </div>
                 </div>
 
-                {/* Solution */}
-                <div className="space-y-8">
-                    <h2 className="text-3xl font-serif">The Solution</h2>
-                    <p className="text-lg text-gray-400 leading-relaxed mb-8">
-                        We developed a contextual AR interface that reveals points of interest, historical facts, and navigation cues only when relevant. By leveraging computer vision and geolocation, the app understands where the user is looking and overlays helpful information seamlessly.
-                    </p>
-                    
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
-                            <Image src="/syahrul-berlari.jpeg" alt="Solution Detail 1" fill className="object-cover" />
-                        </div>
-                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
-                            <Image src="/syahrul-kitsune.jpeg" alt="Solution Detail 2" fill className="object-cover" />
-                        </div>
-                    </div>
-                </div>
+                {/* Main Content */}
+                {project.content}
 
             </div>
         </div>

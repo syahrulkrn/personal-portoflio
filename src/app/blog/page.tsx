@@ -5,7 +5,39 @@ import { Footer } from "@/components/Footer";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { blogPosts } from "@/data/blog-posts";
+
+const blogs = [
+  {
+    title: "Overcoming the Articulation Barrier in Gen AI",
+    slug: "overcoming-articulation-barrier-gen-ai",
+    desc: "How we bridged the gap between human intent and AI generation."
+  },
+  {
+    title: "Making design system from scratch for B2C products",
+    slug: "design-system-scratch-b2c",
+    desc: "A step-by-step guide to building scalable design systems."
+  },
+  {
+    title: "How to make design system from scratch for SAAS products",
+    slug: "design-system-saas",
+    desc: "Key considerations when designing for enterprise software."
+  },
+  {
+    title: "Data analytics app",
+    slug: "data-analytics-app",
+    desc: "Building a comprehensive dashboard for data visualization."
+  },
+  {
+    title: "The Future of AI in Web Development",
+    slug: "future-ai-web-dev",
+    desc: "Exploring how AI tools are reshaping the developer workflow."
+  },
+  {
+    title: "Optimizing Next.js Performance",
+    slug: "optimizing-nextjs",
+    desc: "Best practices for achieving 100 lighthouse scores."
+  }
+];
 
 export default function BlogListingPage() {
   return (
@@ -32,7 +64,7 @@ export default function BlogListingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((blog, index) => (
+            {blogs.map((blog, index) => (
                 <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}

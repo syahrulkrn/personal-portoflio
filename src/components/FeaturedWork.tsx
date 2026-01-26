@@ -5,160 +5,180 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
   {
-    company: "Airbnb",
-    year: "2023",
-    title: "Curating AR experiences while travelling",
-    description: "Augmented Reality features for enhanced travel experiences.",
+    slug: "asna-academy",
+    company: "Asna Academy",
+    year: "2026",
+    title: "Asna Academy Platform",
+    description: "Comprehensive sports academy management system.",
     stats: [
-      "Onboarding increased to 12%.",
+      "Role-based access control.",
+      "Integrated e-commerce & finance.",
+      "Real-time dashboard analytics.",
+    ],
+    theme: "from-[#2e1065] to-[#0f172a]", // Violet/Dark Blue
+    border: "border-violet-500/20",
+    tech: "Next.js, TypeScript, Supabase, Tailwind",
+    image: "/asna-academy.png",
+  },
+  {
+    slug: "omahsabin",
+    company: "Omahsabin",
+    year: "2023",
+    title: "Create Booking Hotel Platform",
+    description:
+      "A personal platform for hotel owners to create and manage their own booking platform.",
+    stats: [
+      "Redesign the user interface for a more intuitive experience.",
       "New users signups increased by 32%.",
       "Engagement increased by 20%.",
     ],
     theme: "from-[#1a2e26] to-[#0d1f1a]", // Green
     border: "border-emerald-500/20",
-    tech: "Marriott Bonvoy",
+    tech: "Next.js, TypeScript, Tailwind CSS, third-party APIs",
+    image: "/omah-sabin-2.png",
   },
   {
-    company: "Shopify",
-    year: "2023",
-    title: "Building profitable dropshipping dashboard",
-    description: "A comprehensive dashboard for managing dropshipping businesses.",
+    slug: "posind",
+    company: "Posind",
+    year: "2025",
+    title: "Contribute to POSIND Logistic App",
+    description:
+      "A comprehensive dashboard for managing dropshipping businesses.",
     stats: [
-      "Revenue increased by 45%.",
-      "User retention up by 15%.",
-      "Churn rate reduced by 8%.",
+      "React for building modular and maintainable UI.",
+      "React Query for handling server state and API calls.",
+      "Redis for secure token storage in authentication flows.",
     ],
     theme: "from-[#0c2e33] to-[#051518]", // Cyan/Teal
     border: "border-cyan-500/20",
-    tech: "Shopify",
+    tech: "Next.js, TypeScript, Tailwind CSS, Socket.io, ant-design, axios",
+    image: "/posind.png",
   },
   {
-    company: "Delloite",
-    year: "2023",
-    title: "Terrific: An app that helps you find a home tutor",
-    description: "Connecting students with the perfect home tutors seamlessly.",
+    slug: "relocation-moving",
+    company: "Relocation Moving",
+    year: "2024",
+    title: "Create Relocation Moving Website & CMS",
+    description: "Built a multilingual marketing website using Next.js and Sanity (Headless CMS).",
     stats: [
-      "Match rate improved by 50%.",
-      "Student satisfaction 4.8/5.",
-      "Tutor signups +200%.",
+      "Multilingual support.",
+      "Improved SEO.",
+      "Easy content management.",
     ],
-    theme: "from-[#1c1c21] to-[#0c0c0e]", // Dark Gray
-    border: "border-gray-500/20",
-    tech: "Terrific",
-  },
-  {
-    company: "Headout",
-    year: "2023",
-    title: "Enhancing the payment flow of Headout",
-    description: "Streamlining the checkout process for better conversion.",
-    stats: [
-      "Checkout drop-off down 12%.",
-      "Conversion rate up 23%.",
-      "Payment success rate 99%.",
-    ],
-    theme: "from-[#1a1f1a] to-[#0a0c0a]", // Dark Green/Black
-    border: "border-green-900/20",
-    tech: "Headout",
+    theme: "from-[#1e293b] to-[#0f172a]", // Slate
+    border: "border-slate-500/20",
+    tech: "Next.js, React, Sanity CMS",
+    image: "/relocation-moving.png",
   },
 ];
 
-function Card({ project, index, range, targetScale }: { project: typeof projects[0], index: number, range: number[], targetScale: number }) {
+function Card({
+  project,
+  index,
+  range,
+  targetScale,
+}: {
+  project: (typeof projects)[0];
+  index: number;
+  range: number[];
+  targetScale: number;
+}) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start end', 'start start']
-  })
+    offset: ["start end", "start start"],
+  });
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1])
+  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(scrollYProgress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="md:h-[100vh] sm:h-auto mt-16 md:mt-0 flex items-center justify-center sticky [--top-offset:12vh] md:[--top-offset:5vh]" style={{ top: `var(--top-offset)` }}>
-        <motion.div 
-          style={{ scale }} 
-          className={cn(
-            "relative flex flex-col w-full max-w-6xl rounded-[2.5rem] overflow-hidden border origin-top shadow-2xl backdrop-blur-md bg-gradient-to-br from-primary/40 to-black/90 border-white/20 hover:from-black/50 hover:to-primary/20 hover:border-white/30"
-          )}
-        >
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 p-8 md:p-12 items-center h-full">
-            {/* Left Content */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <span className="text-white text-xs font-bold tracking-wider uppercase">
-                  {project.company} • {project.year}
-                </span>
-                <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white leading-tight">
-                  {project.title}
-                </h3>
-              </div>
+    <div
+      ref={container}
+      className="md:h-[70vh] sm:h-auto mt-16 md:mt-0 flex items-center justify-center sticky [--top-offset:12vh] md:[--top-offset:5vh]"
+      style={{ top: `var(--top-offset)` }}
+    >
+      <motion.div
+        style={{ scale }}
+        className={cn(
+          "relative flex flex-col w-full max-w-6xl rounded-[2.5rem] overflow-hidden border origin-top shadow-2xl backdrop-blur-md bg-gradient-to-br from-primary/40 to-black/90 border-white/20 hover:from-black/50 hover:to-primary/20 hover:border-white/30",
+        )}
+      >
+        <div className="grid lg:grid-cols-2 h-full">
+          {/* Left Content */}
+          <div className="space-y-8 p-8 md:p-12 flex flex-col justify-center items-start">
+            <div className="space-y-4">
+              <span className="text-white text-xs font-bold tracking-wider uppercase">
+                {project.company} • {project.year}
+              </span>
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif md:w-100 w-72 text-white leading-tight">
+                {project.title}
+              </h3>
+            </div>
 
-              <div className="space-y-3">
-                {project.stats.map((stat, i) => (
-                  <div key={i} className="flex items-center gap-3 text-gray-300">
-                    <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
-                    <span className="text-sm md:text-base font-bold">{stat}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="space-y-3">
+              {project.stats.map((stat, i) => (
+                <div key={i} className="flex items-center gap-3 text-gray-300">
+                  <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
+                  <span className="text-sm md:text-base font-bold">{stat}</span>
+                </div>
+              ))}
+            </div>
 
-              <Button 
-                className="bg-white text-black hover:bg-gray-200 rounded-full h-12 px-6 group"
-              >
+            <Link href={`/works/${project.slug}`}>
+              <Button className="bg-white text-black hover:bg-gray-200 rounded-full h-12 px-6 group">
                 View Case Study
                 <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Button>
-            </div>
+            </Link>
+          </div>
 
-            {/* Right Content - Phone Mockup */}
-            <div className="relative flex justify-center lg:justify-end mt-8 lg:mt-0">
-               {/* Phone Frame */}
-               <div className="relative w-[280px] h-[580px] bg-gray-900 rounded-[3rem] border-8 border-gray-800 shadow-2xl overflow-hidden ring-1 ring-white/10">
-                 {/* Notch */}
-                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-xl z-20"></div>
-                 
-                 {/* Screen Content */}
-                 <div className="w-full h-full bg-cover bg-center relative" style={{ backgroundColor: '#4a5568' }}>
-                    <div className="absolute inset-0 bg-black/20 z-10"></div>
-                    {/* Simulated UI */}
-                    <div className="relative z-10 flex flex-col h-full text-white p-6 pt-12">
-                      <div className="flex justify-between items-center mb-8">
-                        <div className="text-xs font-bold tracking-widest uppercase">{project.tech}</div>
-                        <div className="w-4 h-4 rounded-full bg-white/20"></div>
-                      </div>
-                      
-                      <div className="mt-auto mb-12">
-                        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10">
-                           <div className="flex items-center gap-3 mb-2">
-                             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-                             <span className="text-xs font-medium">Live AR View</span>
-                           </div>
-                           <p className="text-lg font-serif leading-tight">Where can we take you?</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="absolute inset-0 opacity-60">
-                         <div className="w-full h-full bg-gradient-to-b from-blue-900 to-emerald-900"></div>
-                    </div>
-                 </div>
-               </div>
+          {/* Right Content - Project Image */}
+          <div className="relative h-full min-h-[300px] lg:min-h-auto overflow-hidden lg:overflow-visible">
+            <div className="absolute right-0 bottom-0 w-[120%] lg:w-[130%] translate-x-[15%] translate-y-[15%] rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#1e1e1e]">
+              {/* Browser Toolbar */}
+              <div className="h-9 bg-[#2a2a2a] border-b border-white/5 flex items-center px-4 gap-2">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                  <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                  <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                </div>
+                {/* Address Bar */}
+                <div className="flex-1 ml-4 flex justify-center">
+                  <div className="bg-[#1a1a1a] text-[10px] text-gray-500 py-1 px-4 rounded w-full max-w-[240px] text-center font-mono truncate">
+                    {project.company.toLowerCase()}.com
+                  </div>
+                </div>
+              </div>
+
+              {/* Viewport */}
+              <div className="relative w-full aspect-video bg-black">
+                <Image
+                  src={project.image || "/omah-sabin-2.png"}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-top transition-transform duration-500 hover:scale-105"
+                />
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
     </div>
-  )
+  );
 }
 
 export function FeaturedWork() {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ['start start', 'end end']
-  })
+    offset: ["start start", "end end"],
+  });
 
   return (
     <section className="py-24 px-4 bg-black" id="works" ref={container}>
@@ -196,17 +216,25 @@ export function FeaturedWork() {
 
       <div className="relative">
         {projects.map((project, i) => {
-          const targetScale = 1 - ( (projects.length - i) * 0.05);
-          return <Card key={i} index={i} project={project} range={[i * .25, 1]} targetScale={targetScale}/>
+          const targetScale = 1 - (projects.length - i) * 0.05;
+          return (
+            <Card
+              key={i}
+              index={i}
+              project={project}
+              range={[i * 0.25, 1]}
+              targetScale={targetScale}
+            />
+          );
         })}
       </div>
 
       <div className="flex justify-center relative z-10">
         <Link href="/works" className="cursor-pointer">
-            <Button className="bg-white text-black hover:bg-gray-200 rounded-full h-14 px-8 group text-lg font-medium shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-                View All Works
-                <ArrowUpRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Button>
+          <Button className="bg-white text-black w-2xs hover:bg-gray-200 rounded-full h-14 px-8 group text-lg font-medium shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+            View All Works
+            <ArrowUpRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Button>
         </Link>
       </div>
     </section>
