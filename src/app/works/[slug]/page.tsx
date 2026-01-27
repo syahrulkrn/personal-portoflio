@@ -523,7 +523,7 @@ const projects: Record<string, Project> = {
       "Delivered reliable and scalable APIs supporting multiple modules",
       "Provided a clear and user-friendly interface for project stakeholders"
     ],
-    heroImage: "/pma.png",
+    heroImage: "/PMA.png",
     overview: (
         <>
             <h2 className="text-3xl font-serif">Overview</h2>
