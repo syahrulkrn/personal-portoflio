@@ -145,7 +145,7 @@ export function ExperienceSection() {
         </div>
 
         {/* CTA Card */}
-        <motion.div 
+        {/* <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -168,9 +168,8 @@ export function ExperienceSection() {
                 </Button>
             </div>
             
-            {/* Background Grain/Texture (Optional) */}
             <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay bg-noise"></div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

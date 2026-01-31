@@ -2,9 +2,9 @@
 
 import { BackgroundEffects } from "@/components/BackgroundEffects";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -79,10 +79,13 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 pt-4"
         >
           <Button
+            asChild
             size="lg"
             className="bg-gradient-to-br text-white from-primary/40 to-primary/10 border-white/20 hover:from-primary/50 hover:to-primary/20 hover:border-white/30"
           >
-            Let&apos;s talk
+            <Link href="mailto:syahrulkurniawan25@gmail.com">
+              Let&apos;s talk
+            </Link>
           </Button>
           {/* <Button
             variant="outline"

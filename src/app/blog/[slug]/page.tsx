@@ -4,16 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-  Link as LinkIcon,
-  Calendar,
-  User,
-  Clock,
-  Github,
-  PlayCircle,
-  Eye,
-  Heart,
-} from "lucide-react";
+import { Link as LinkIcon, Github, PlayCircle, Eye, Heart } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { blogPosts } from "@/data/blog-posts";
@@ -89,10 +80,10 @@ export default function BlogDetailPage() {
           </div>
 
           {/* Sidebar - Right Column */}
-          <div className="hidden lg:block lg:col-span-4 relative">
+          <div className="lg:col-span-4 relative">
             <div className="sticky top-32 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
               <h3 className="text-lg font-bold text-white mb-6">
-                On this page
+               Contents
               </h3>
 
               <nav className="flex flex-col space-y-4">

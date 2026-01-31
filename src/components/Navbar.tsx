@@ -58,7 +58,7 @@ export function Navbar() {
                 asChild
                 className="bg-white text-black hover:bg-gray-200 rounded-full whitespace-nowrap h-9 px-5 text-sm font-medium"
               >
-                <Link href="#contact" className="cursor-pointer">Let&apos;s talk</Link>
+                <Link href="mailto:syahrulkurniawan25@gmail.com" className="cursor-pointer">Let&apos;s talk</Link>
               </Button>
             </motion.div>
           )}

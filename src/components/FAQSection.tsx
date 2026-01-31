@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function FAQSection() {
   const faqs = [
@@ -92,8 +93,10 @@ export function FAQSection() {
                  
                  {/* Floating Button */}
                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full px-6">
-                    <Button className="w-full bg-white text-black hover:bg-gray-100 font-medium h-12 rounded-xl shadow-lg">
-                      <span className="mr-2">👋</span> Let&apos;s talk
+                    <Button asChild className="w-full bg-white text-black hover:bg-gray-100 font-medium h-12 rounded-xl shadow-lg">
+                      <Link href="mailto:syahrulkurniawan25@gmail.com">
+                        <span className="mr-2">👋</span> Let&apos;s talk
+                      </Link>
                     </Button>
                  </div>
                  
