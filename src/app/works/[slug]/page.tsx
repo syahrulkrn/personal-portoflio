@@ -118,7 +118,7 @@ export default function WorkDetailPage() {
           </div>
 
           {/* Sidebar - Right Column */}
-          <div className="lg:col-span-4 relative">
+          <div className="hidden lg:block lg:col-span-4 relative">
             <div className="sticky top-32 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
               <h3 className="text-sm font-bold text-white mb-6 uppercase tracking-wider">
                Contents

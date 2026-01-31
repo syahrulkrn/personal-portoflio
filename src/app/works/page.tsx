@@ -11,18 +11,34 @@ import { projects } from "@/data/projects";
 
 export default function WorksListingPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
   const allProjects = Object.entries(projects).map(([slug, project]) => ({
     ...project,
     slug,
   }));
 
-  const filteredProjects = allProjects.filter((project) =>
-    project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    (project.shortDescription && project.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())) ||
-    project.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    project.tools.some((tool) => tool.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+  // Define specific tags to display as requested
+  const allTags = ["Next / React", "Shopify", "WordPress"];
+
+  const filteredProjects = allProjects.filter((project) => {
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (project.shortDescription &&
+        project.shortDescription.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      project.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.tools.some((tool) =>
+        tool.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+    const matchesTag = selectedTag
+      ? selectedTag === "Next / React"
+        ? project.tools.some((tool) => tool === "Next.js" || tool === "React")
+        : project.tools.includes(selectedTag)
+      : true;
+
+    return matchesSearch && matchesTag;
+  });
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-green-500/30">
@@ -30,40 +46,74 @@ export default function WorksListingPage() {
 
       <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16 space-y-4">
-            <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-7xl font-serif"
-            >
-                Works
-            </motion.h1>
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-gray-400 text-lg max-w-2xl mx-auto"
-            >
-                A showcase of projects that I've worked on.
-            </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-7xl font-serif"
+          >
+            Works
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-400 text-lg max-w-2xl mx-auto"
+          >
+            A showcase of projects that I've worked on.
+          </motion.p>
 
-            {/* Search Bar */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="max-w-md mx-auto mt-8 relative"
+          {/* Search Bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-md mx-auto mt-8 relative"
+          >
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+              <input
+                type="text"
+                placeholder="Search projects..."
+                className="w-full pl-10 pr-4 bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-full h-12 transition-all"
+                value={searchQuery}
+                onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                  setSearchQuery(e.target.value)
+                }
+              />
+            </div>
+          </motion.div>
+
+          {/* Tech Stack Filter Tags */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto mt-6"
+          >
+            <button
+              onClick={() => setSelectedTag(null)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
+                selectedTag === null
+                  ? "bg-white text-black border-white"
+                  : "bg-white/5 text-gray-400 border-white/5 hover:bg-white/10 hover:border-white/20"
+              }`}
             >
-                <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
-                    <input 
-                        type="text" 
-                        placeholder="Search projects..." 
-                        className="w-full pl-10 pr-4 bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-full h-12 transition-all"
-                        value={searchQuery}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
-                    />
-                </div>
-            </motion.div>
+              All
+            </button>
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setSelectedTag(tag === selectedTag ? null : tag)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${
+                  selectedTag === tag
+                    ? "bg-white text-black border-white"
+                    : "bg-white/5 text-gray-400 border-white/5 hover:bg-white/10 hover:border-white/20"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </motion.div>
         </div>
 
         {/* Projects Grid */}

@@ -23,7 +23,7 @@ const projects = [
     theme: "from-[#2e1065] to-[#0f172a]", // Violet/Dark Blue
     border: "border-violet-500/20",
     tech: "Next.js, TypeScript, Supabase, Tailwind",
-    image: "/projects/asna-academy/projects/asna-academy/asna-academy.png",
+    image: "/projects/asna-academy/asna-academy.png",
   },
   {
     slug: "omahsabin",
@@ -40,7 +40,7 @@ const projects = [
     theme: "from-[#1a2e26] to-[#0d1f1a]", // Green
     border: "border-emerald-500/20",
     tech: "Next.js, TypeScript, Tailwind CSS, third-party APIs",
-    image: "/projects/omah-sabin/projects/omah-sabin/omah-sabin-2.png",
+    image: "/projects/omah-sabin/omah-sabin-2.png",
   },
   {
     slug: "posind",
@@ -57,7 +57,7 @@ const projects = [
     theme: "from-[#0c2e33] to-[#051518]", // Cyan/Teal
     border: "border-cyan-500/20",
     tech: "Next.js, TypeScript, Tailwind CSS, Socket.io, ant-design, axios",
-    image: "/projects/pos-indonesia/projects/pos-indonesia/posind.png",
+    image: "/projects/pos-indonesia/posind.png",
   },
   {
     slug: "relocation-moving",
