@@ -8,8 +8,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Humble Abode",
-  description: "Independent designer portfolio",
+  title: "Syahrul Kurniawan",
+  description: "Syahrul's portfolio",
 };
 
 export default function RootLayout({

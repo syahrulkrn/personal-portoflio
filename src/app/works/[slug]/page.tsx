@@ -4,14 +4,23 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { 
-  ArrowLeft,
-  Link as LinkIcon, 
-  CheckCircle2
+import {
+  Link as LinkIcon,
+  CheckCircle2,
+  Eye,
+  Heart,
+  Users,
+  Github,
+  PlayCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { notFound, useParams } from "next/navigation";
 import { ReactNode } from "react";
+
+interface TOCItem {
+  id: string;
+  label: string;
+}
 
 interface Project {
   title: string;
@@ -25,11 +34,19 @@ interface Project {
   overview: ReactNode;
   content: ReactNode;
   link?: string;
+  videoUrl?: string;
+  // New fields for design matching
+  toc: TOCItem[];
+  likes?: number;
+  views?: string;
+  teamSize?: number;
+  repoUrl?: string;
+  demoUrl?: string; // If different from link, or specific video link
 }
 
 const projects: Record<string, Project> = {
   "asna-academy": {
-    title: "Asna Academy - Sports Academy Management Platform",
+    title: "Asna Academy",
     company: "Asna Academy",
     year: "2026",
     role: "Full Stack Developer",
@@ -41,78 +58,114 @@ const projects: Record<string, Project> = {
       "Integrated e-commerce and finance modules.",
     ],
     heroImage: "/asna-academy.png",
-    overview: (
-        <>
-            <h2 className="text-3xl font-serif">Overview</h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-                Asna Academy is a comprehensive sports academy management platform designed to streamline operations, from student registration and class management to attendance, financial reporting, and e-commerce. Built with modern web technologies, it ensures high performance, scalability, and a responsive user experience.
-            </p>
-        </>
-    ),
+    likes: 420,
+    views: "3,210",
+    teamSize: 3,
     link: "https://asna-academy-pink.vercel.app/",
+    toc: [
+      { id: "overview", label: "Short Explanation" },
+      { id: "tech-stack", label: "Tech Stack Used" },
+      { id: "features", label: "Key Features" },
+    ],
+    overview: (
+      <>
+        <h2
+          id="overview"
+          className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative"
+        >
+          Short Explanation
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-8">
+          Asna Academy is a comprehensive sports academy management platform
+          designed to streamline operations, from student registration and class
+          management to attendance, financial reporting, and e-commerce. Built
+          with modern web technologies, it ensures high performance,
+          scalability, and a responsive user experience.
+        </p>
+      </>
+    ),
     content: (
-        <div className="space-y-12">
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Tech Stack</h2>
-                 <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        "Next.js (App Router) for full-stack application",
-                        "TypeScript for type safety and maintainability",
-                        "Tailwind CSS & Shadcn UI for styling",
-                        "Supabase for backend, auth, and database",
-                        "Zustand for state management",
-                        "React Hook Form & Zod for form validation"
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-gray-400">
-                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
-                             <span>{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="space-y-8">
-                <h2 className="text-3xl font-serif">Key Features</h2>
-                
-                <div className="space-y-8">
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">Role-Based Access Control</h3>
-                        <p className="text-gray-400">Supports Superadmin, Admin, Coach, and Student roles, each with a tailored dashboard and permissions.</p>
-                    </div>
-
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">Comprehensive Dashboard</h3>
-                        <ul className="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Visual statistics for attendance, revenue, and activities.</li>
-                            <li>Management of branches, classes, programs, and facilities.</li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">Academic & Operational</h3>
-                        <ul className="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Enrollment and attendance tracking.</li>
-                            <li>Internal social feed for community interaction.</li>
-                            <li>System logs for audit trails.</li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">Finance & E-Commerce</h3>
-                        <ul className="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Transaction management with PDF invoice generation.</li>
-                            <li>Online shop for sports equipment with inventory management.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-
+      <div className="space-y-16">
+        <div id="tech-stack" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Tech Stack Used
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "Next.js (App Router) for full-stack application",
+              "TypeScript for type safety and maintainability",
+              "Tailwind CSS & Shadcn UI for styling",
+              "Supabase for backend, auth, and database",
+              "Zustand for state management",
+              "React Hook Form & Zod for form validation",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-400">
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
-    )
+
+        <div id="features" className="space-y-8 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Key Features
+          </h2>
+
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">
+                Role-Based Access Control
+              </h3>
+              <p className="text-gray-400">
+                Supports Superadmin, Admin, Coach, and Student roles, each with
+                a tailored dashboard and permissions.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">
+                Comprehensive Dashboard
+              </h3>
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li>
+                  Visual statistics for attendance, revenue, and activities.
+                </li>
+                <li>
+                  Management of branches, classes, programs, and facilities.
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">
+                Academic & Operational
+              </h3>
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li>Enrollment and attendance tracking.</li>
+                <li>Internal social feed for community interaction.</li>
+                <li>System logs for audit trails.</li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">
+                Finance & E-Commerce
+              </h3>
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li>Transaction management with PDF invoice generation.</li>
+                <li>
+                  Online shop for sports equipment with inventory management.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
   },
-  "omahsabin": {
-    title: "Omahsabin Luxury Villas – Website Redesign",
+  omahsabin: {
+    title: "Omahsabin Luxury Villas",
     company: "Omahsabin",
     year: "2024",
     role: "Frontend Engineer",
@@ -124,77 +177,142 @@ const projects: Record<string, Project> = {
       "Easier content management via Sanity CMS.",
     ],
     heroImage: "/omah-sabin-2.png",
+    likes: 522,
+    views: "4,622",
+    teamSize: 4,
     link: "https://omahsabin.com/",
+    videoUrl: "https://www.youtube.com/watch?v=rlepa0fdd8o",
+    toc: [
+      { id: "overview", label: "Short Explanation" },
+      { id: "role", label: "My Role" },
+      { id: "built", label: "What I Built" },
+      { id: "tech-stack", label: "Tech Stack Used" },
+      { id: "demo", label: "Demo Video" },
+    ],
     overview: (
-        <>
-            <h2 className="text-3xl font-serif">Overview</h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-                Omahsabin is a luxury villa experience surrounded by rice fields in Bali. The goal of this project was to redesign the marketing and booking website to better reflect the brand, improve performance, and make it easier for guests to explore the villas and book their stay online.
-            </p>
-        </>
+      <>
+        <h2
+          id="overview"
+          className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative"
+        >
+          Short Explanation
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-8">
+          Omahsabin is a luxury villa experience surrounded by rice fields in
+          Bali. The goal of this project was to redesign the marketing and
+          booking website to better reflect the brand, improve performance, and
+          make it easier for guests to explore the villas and book their stay
+          online.
+        </p>
+      </>
     ),
     content: (
-        <div className="space-y-12">
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">My Role</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Frontend Engineer (Next.js)</li>
-                    <li>Integration with headless CMS (Sanity)</li>
-                    <li>Third-party booking system integration</li>
-                </ul>
-            </div>
-
-            <div className="space-y-8">
-                <h2 className="text-3xl font-serif">What I Built</h2>
-                
-                <div className="space-y-6">
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Website redesign with Next.js</h3>
-                        <p className="text-gray-400">Rebuilt the site using Next.js to improve loading speed, SEO, and developer experience.</p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Responsive UI</h3>
-                        <p className="text-gray-400">Designed and implemented layouts that work seamlessly across desktop and mobile devices, with a focus on imagery and storytelling for the villas.</p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Multilanguage support</h3>
-                        <p className="text-gray-400">Implemented multilingual content so the website can serve different audiences more effectively.</p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Headless CMS with Sanity</h3>
-                        <p className="text-gray-400">Connected the frontend to Sanity as a headless CMS, allowing content editors to manage villa descriptions, images, and blog posts without touching code.</p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Booking integration</h3>
-                        <p className="text-gray-400">Integrated a third-party booking system to streamline reservations while keeping the experience consistent with the site’s design.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Tech Stack</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        "Next.js for the frontend framework",
-                        "React for UI components",
-                        "Sanity as headless CMS",
-                        "Third-party booking platform for reservations"
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-gray-400">
-                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
-                             <span>{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+      <div className="space-y-16">
+        <div id="role" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            My Role
+          </h2>
+          <ul className="list-disc list-inside text-gray-400 space-y-2">
+            <li>Frontend Engineer (Next.js)</li>
+            <li>Integration with headless CMS (Sanity)</li>
+            <li>Third-party booking system integration</li>
+          </ul>
         </div>
-    )
+
+        <div id="built" className="space-y-8 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            What I Built
+          </h2>
+
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">
+                Website redesign with Next.js
+              </h3>
+              <p className="text-gray-400">
+                Led a full website rebuild using Next.js, focusing on
+                performance, scalability, and SEO best practices. Improved page
+                load times, optimized rendering, and enhanced overall developer
+                experience for easier long-term maintenance.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">Responsive UI</h3>
+              <Image
+                src="/omahsabinui.jpg"
+                width={400}
+                height={400}
+                alt="Responsive UI"
+                className="w-full h-auto rounded-lg border border-white/10"
+              />
+              <p className="text-gray-400">
+                Designed and implemented a fully responsive user interface that
+                delivers a seamless experience across desktop and mobile
+                devices. Emphasized visual storytelling and high-quality imagery
+                to showcase each villa, creating an immersive and engaging
+                browsing experience for users.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">
+                Booking integration
+              </h3>
+              <Image
+                src="/bookapp.png"
+                width={400}
+                height={400}
+                alt="Booking integration"
+                className="w-full h-auto rounded-lg border border-white/10"
+              />
+              <p className="text-gray-400">
+                Integrated a third-party booking system to simplify the
+                reservation process while maintaining visual and interaction
+                consistency with the website’s design. Ensured smooth user flow
+                from discovery to booking without disrupting the brand
+                experience.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tech-stack" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Tech Stack Used
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "Next.js for the frontend framework",
+              "React for UI components",
+              "Third-party booking platform for reservations",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-400">
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div id="demo" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Demo Video
+          </h2>
+          <div className="relative aspect-video overflow-hidden border border-white/10 bg-white/5 rounded-lg">
+            <iframe
+              src="https://www.youtube.com/embed/rlepa0fdd8o"
+              title="Project Video"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </div>
+    ),
   },
-  "posind": {
+  posind: {
     title: "POS GLID Web App",
     company: "Pos Indonesia",
     year: "2025",
@@ -207,86 +325,149 @@ const projects: Record<string, Project> = {
       "Churn rate reduced by 8%.",
     ],
     heroImage: "/posind.png",
-    link : "https://pos-oms-web.nutech-integrasi.com/",
+    likes: 350,
+    views: "2,800",
+    teamSize: 5,
+    link: "https://pos-oms-web.nutech-integrasi.com/",
+    toc: [
+      { id: "overview", label: "Short Explanation" },
+      { id: "role", label: "My Role" },
+      { id: "modules", label: "Modules I Worked On" },
+      { id: "tech-highlights", label: "Tech Highlights" },
+    ],
     overview: (
-        <>
-            <h2 className="text-3xl font-serif">Overview</h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-                POS GLID is a web application built for POS Indonesia to manage operational workflows, from master data to transactions and internal communication. I worked on several core modules that support daily operations and ensure the platform is reliable, secure, and easy to use.
-            </p>
-        </>
+      <>
+        <h2
+          id="overview"
+          className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative"
+        >
+          Short Explanation
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-8">
+          POS GLID is a web application built for POS Indonesia to manage
+          operational workflows, from master data to transactions and internal
+          communication. I worked on several core modules that support daily
+          operations and ensure the platform is reliable, secure, and easy to
+          use.
+        </p>
+      </>
     ),
     content: (
-        <div className="space-y-12">
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">My Role</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Frontend Engineer focused on business-critical modules</li>
-                    <li>Collaboration with backend team for API design and integration</li>
-                </ul>
-            </div>
-
-            <div className="space-y-8">
-                <h2 className="text-3xl font-serif">Modules I Worked On</h2>
-                
-                <div className="space-y-8">
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">Master Data Module</h3>
-                        <ul className="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Developed the Master Data module, including table views for large datasets.</li>
-                            <li>Built dynamic forms to create and update records.</li>
-                            <li>Integrated CRUD operations with backend APIs to keep data consistent and reliable.</li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">Transaction Module</h3>
-                        <ul className="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Built the Transaction module with multi-step forms to guide users through complex flows.</li>
-                            <li>Used React Query for data fetching, caching, and synchronization with the backend.</li>
-                            <li>Ensured proper error handling and loading states for a smooth user experience.</li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">IAM (Identity and Access Management) Module</h3>
-                        <ul className="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Implemented features for user creation and management.</li>
-                            <li>Configured user roles and menu access to control what each user can see and do.</li>
-                            <li>Added password update flows to keep accounts secure.</li>
-                            <li>Worked with access token and refresh token mechanisms backed by Redis to manage authentication sessions securely and efficiently.</li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-3">
-                        <h3 className="text-xl font-bold text-white">Live Chat Module</h3>
-                        <ul className="list-disc list-inside text-gray-400 space-y-2">
-                            <li>Built the Live Chat UI, including layout and components for messages and conversations.</li>
-                            <li>Implemented real-time communication using Socket.io with handshake for secure connections.</li>
-                            <li>Enabled instant messaging so internal teams can coordinate directly inside the platform.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Tech Highlights</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        "React for building modular and maintainable UI.",
-                        "React Query for handling server state and API calls.",
-                        "Redis for secure token storage in authentication flows.",
-                        "Socket.io for real-time, bidirectional communication."
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-gray-400">
-                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
-                             <span>{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+      <div className="space-y-16">
+        <div id="role" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            My Role
+          </h2>
+          <ul className="list-disc list-inside text-gray-400 space-y-2">
+            <li>Frontend Engineer focused on business-critical modules</li>
+            <li>
+              Collaboration with backend team for API design and integration
+            </li>
+          </ul>
         </div>
-    )
+
+        <div id="modules" className="space-y-8 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Modules I Worked On
+          </h2>
+
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">
+                Master Data Module
+              </h3>
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li>
+                  Developed the Master Data module, including table views for
+                  large datasets.
+                </li>
+                <li>Built dynamic forms to create and update records.</li>
+                <li>
+                  Integrated CRUD operations with backend APIs to keep data
+                  consistent and reliable.
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">
+                Transaction Module
+              </h3>
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li>
+                  Built the Transaction module with multi-step forms to guide
+                  users through complex flows.
+                </li>
+                <li>
+                  Used React Query for data fetching, caching, and
+                  synchronization with the backend.
+                </li>
+                <li>
+                  Ensured proper error handling and loading states for a smooth
+                  user experience.
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">
+                IAM (Identity and Access Management) Module
+              </h3>
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li>Implemented features for user creation and management.</li>
+                <li>
+                  Configured user roles and menu access to control what each
+                  user can see and do.
+                </li>
+                <li>Added password update flows to keep accounts secure.</li>
+                <li>
+                  Worked with access token and refresh token mechanisms backed
+                  by Redis to manage authentication sessions securely and
+                  efficiently.
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-lg font-bold text-white">Live Chat Module</h3>
+              <ul className="list-disc list-inside text-gray-400 space-y-2">
+                <li>
+                  Built the Live Chat UI, including layout and components for
+                  messages and conversations.
+                </li>
+                <li>
+                  Implemented real-time communication using Socket.io with
+                  handshake for secure connections.
+                </li>
+                <li>
+                  Enabled instant messaging so internal teams can coordinate
+                  directly inside the platform.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="tech-highlights" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Tech Highlights
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "React for building modular and maintainable UI.",
+              "React Query for handling server state and API calls.",
+              "Redis for secure token storage in authentication flows.",
+              "Socket.io for real-time, bidirectional communication.",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-400">
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
   },
   "relocation-moving": {
     title: "Relocation Moving",
@@ -296,84 +477,140 @@ const projects: Record<string, Project> = {
     duration: "2024",
     tools: ["Next.js", "React", "Sanity CMS", "SEO"],
     stats: [
-        "Multilingual support for broader reach.",
-        "Improved SEO and search visibility.",
-        "Easy content management via Sanity CMS.",
+      "Multilingual support for broader reach.",
+      "Improved SEO and search visibility.",
+      "Easy content management via Sanity CMS.",
     ],
     heroImage: "/relocation-moving.png",
+    likes: 180,
+    views: "1,200",
+    teamSize: 2,
     link: "https://www.relocationmoving.ca/en",
+    toc: [
+      { id: "overview", label: "Short Explanation" },
+      { id: "role", label: "My Role" },
+      { id: "built", label: "What I Built" },
+      { id: "seo", label: "SEO & Performance" },
+      { id: "tech-stack", label: "Tech Stack" },
+    ],
     overview: (
-        <>
-            <h2 className="text-3xl font-serif">Overview</h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-                Relocation Moving is a professional moving company serving clients in multiple regions and languages. The goal of this project was to build a multilingual marketing website that clearly communicates their services, builds trust, and performs well in search engines.
-            </p>
-        </>
+      <>
+        <h2
+          id="overview"
+          className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative"
+        >
+          Short Explanation
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-8">
+          Relocation Moving is a professional moving company serving clients in
+          multiple regions and languages. The goal of this project was to build
+          a multilingual marketing website that clearly communicates their
+          services, builds trust, and performs well in search engines.
+        </p>
+      </>
     ),
     content: (
-        <div className="space-y-12">
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">My Role</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Frontend Engineer (Next.js)</li>
-                    <li>CMS architecture and content modeling with Sanity</li>
-                    <li>SEO and performance optimization</li>
-                </ul>
-            </div>
-
-            <div className="space-y-8">
-                <h2 className="text-3xl font-serif">What I Built</h2>
-                
-                <div className="space-y-6">
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Multilingual Next.js website</h3>
-                        <p className="text-gray-400">Implemented a multilingual site structure so visitors can browse content in different languages while keeping URLs and routes SEO-friendly.</p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Sanity as Headless CMS</h3>
-                        <p className="text-gray-400">Modeled content in Sanity so the Relocation Moving team can manage pages, sections, and copy without touching code.</p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Reusable components</h3>
-                        <p className="text-gray-400">Built reusable sections for hero, services, testimonials, and CTAs to keep the design consistent and easy to extend.</p>
-                    </div>
-
-                    <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-white">Clean information architecture</h3>
-                        <p className="text-gray-400">Structured navigation and page hierarchy so visitors can quickly understand services and request quotes.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div className="space-y-8">
-                <h2 className="text-3xl font-serif">SEO & Performance</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Configured meta tags, open graph data, and structured content for better search visibility.</li>
-                    <li>Optimized images and layout for fast loading times on both desktop and mobile.</li>
-                    <li>Leveraged Next.js features like static generation and caching to deliver a snappy experience.</li>
-                </ul>
-            </div>
-
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Tech Stack</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        "Next.js for the frontend framework",
-                        "React for UI components",
-                        "Sanity as the headless CMS",
-                        "Deployed on a modern hosting platform"
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-gray-400">
-                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
-                             <span>{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+      <div className="space-y-16">
+        <div id="role" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            My Role
+          </h2>
+          <ul className="list-disc list-inside text-gray-400 space-y-2">
+            <li>Frontend Engineer (Next.js)</li>
+            <li>CMS architecture and content modeling with Sanity</li>
+            <li>SEO and performance optimization</li>
+          </ul>
         </div>
-    )
+
+        <div id="built" className="space-y-8 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            What I Built
+          </h2>
+
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">
+                Multilingual Next.js website
+              </h3>
+              <p className="text-gray-400">
+                Implemented a multilingual site structure so visitors can browse
+                content in different languages while keeping URLs and routes
+                SEO-friendly.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">
+                Sanity as Headless CMS
+              </h3>
+              <p className="text-gray-400">
+                Modeled content in Sanity so the Relocation Moving team can
+                manage pages, sections, and copy without touching code.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">
+                Reusable components
+              </h3>
+              <p className="text-gray-400">
+                Built reusable sections for hero, services, testimonials, and
+                CTAs to keep the design consistent and easy to extend.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">
+                Clean information architecture
+              </h3>
+              <p className="text-gray-400">
+                Structured navigation and page hierarchy so visitors can quickly
+                understand services and request quotes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="seo" className="space-y-8 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            SEO & Performance
+          </h2>
+          <ul className="list-disc list-inside text-gray-400 space-y-2">
+            <li>
+              Configured meta tags, open graph data, and structured content for
+              better search visibility.
+            </li>
+            <li>
+              Optimized images and layout for fast loading times on both desktop
+              and mobile.
+            </li>
+            <li>
+              Leveraged Next.js features like static generation and caching to
+              deliver a snappy experience.
+            </li>
+          </ul>
+        </div>
+
+        <div id="tech-stack" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Tech Stack
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {[
+              "Next.js for the frontend framework",
+              "React for UI components",
+              "Sanity as the headless CMS",
+              "Deployed on a modern hosting platform",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 text-gray-400">
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
   },
   "vivus-pets": {
     title: "Vivus Pets – Shopify E-commerce Website",
@@ -388,211 +625,58 @@ const projects: Record<string, Project> = {
       "Improved usability and mobile experience.",
       "Faster page load performance.",
       "More stable and user-friendly shopping flow.",
-      "Increased potential for higher conversion rates."
+      "Increased potential for higher conversion rates.",
     ],
     heroImage: "/vivuspets.png",
-    overview: (
-        <>
-            <h2 className="text-3xl font-serif">Overview</h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-                Developed and enhanced the Vivus Pets Shopify website by focusing on UI redesign, feature improvements, bug fixing, and user experience optimization to create a faster, more intuitive, and conversion-focused e-commerce experience.
-            </p>
-        </>
-    ),
-    content: (
-        <div className="space-y-12">
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">What I Did</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Customized and extended a Shopify theme using Liquid, HTML, CSS, and JavaScript</li>
-                    <li>Redesigned key pages including Homepage, Collection Pages, and Product Detail Pages</li>
-                    <li>Improved responsive design for mobile and tablet devices</li>
-                    <li>Added and enhanced e-commerce features such as product variants, cart behavior, and product recommendations</li>
-                    <li>Fixed UI, functional, and performance-related bugs</li>
-                    <li>Optimized site performance through image optimization and code cleanup</li>
-                    <li>Improved navigation, product information clarity, and checkout flow</li>
-                </ul>
-            </div>
-
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Result</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Cleaner and more modern UI</li>
-                    <li>Improved usability and mobile experience</li>
-                    <li>Faster page load performance</li>
-                    <li>More stable and user-friendly shopping flow</li>
-                    <li>Increased potential for higher conversion rates</li>
-                </ul>
-            </div>
-             
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Tech Stack</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        "Shopify Platform",
-                        "Liquid Templating Language",
-                        "HTML5 & CSS3",
-                        "JavaScript (ES6+)"
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-gray-400">
-                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
-                             <span>{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    )
-  },
-  "ceisa": {
-    title: "CEISA – Trade Module Development",
-    company: "CEISA",
-    
-    year: "2023",
-    role: "Frontend Developer",
-    duration: "2023",
-    tools: ["React", "Tailwind CSS", "Antd", "Axios"],
-    stats: [
-      "Improved efficiency and reliability of Trade workflows.",
-      "Reduced form errors and failed submissions.",
-      "Enhanced stability across interconnected modules.",
-      "Delivered a smoother and more intuitive user experience."
+    likes: 150,
+    views: "980",
+    teamSize: 1,
+    toc: [
+      { id: "overview", label: "Short Explanation" },
+      { id: "did", label: "What I Did" },
     ],
-    heroImage: "/ceisa.png",
     overview: (
-        <>
-            <h2 className="text-3xl font-serif">Overview</h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-                Contributed to the CEISA project by developing complex interactive forms within the Trade module, handling API integrations across multiple modules, and performing bug fixing to improve system stability, data accuracy, and overall user experience.
-            </p>
-        </>
+      <>
+        <h2
+          id="overview"
+          className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative"
+        >
+          Short Explanation
+        </h2>
+        <p className="text-gray-400 leading-relaxed mb-8">
+          Developed and enhanced the Vivus Pets Shopify website by focusing on
+          UI redesign, feature improvements, bug fixing, and user experience
+          optimization to create a faster, more intuitive, and
+          conversion-focused e-commerce experience.
+        </p>
+      </>
     ),
     content: (
-        <div className="space-y-12">
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">What I Did</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Built complex, dynamic, and validated interactive forms for the Trade module</li>
-                    <li>Implemented conditional logic, real-time validation, and robust error handling</li>
-                    <li>Integrated multiple APIs to support seamless data flow between modules</li>
-                    <li>Fixed bugs related to form submission, API response handling, and state management</li>
-                    <li>Improved data consistency and reduced user input errors</li>
-                    <li>Collaborated with backend teams to ensure reliable API communication</li>
-                </ul>
-            </div>
-
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Result</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Improved efficiency and reliability of Trade workflows</li>
-                    <li>Reduced form errors and failed submissions</li>
-                    <li>Enhanced stability across interconnected modules</li>
-                    <li>Delivered a smoother and more intuitive user experience</li>
-                </ul>
-            </div>
-             
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Tech Stack</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        "React & Tailwind CSS",
-                        "Ant Design (UI Library)",
-                        "Axios (API Integration)",
-                        "Complex Form Handling"
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-gray-400">
-                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
-                             <span>{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+      <div className="space-y-16">
+        <div id="did" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            What I Did
+          </h2>
+          <ul className="list-disc list-inside text-gray-400 space-y-2">
+            <li>
+              Customized and extended a Shopify theme using Liquid, HTML, CSS,
+              and JavaScript
+            </li>
+            <li>
+              Redesigned key pages including Homepage, Collection Pages, and
+              Product Detail Pages
+            </li>
+            <li>Improved responsive design for mobile and tablet devices</li>
+            <li>
+              Added and enhanced e-commerce features such as product variants,
+              cart behavior, and product recommendations
+            </li>
+            <li>Fixed UI, functional, and performance-related bugs</li>
+          </ul>
         </div>
-    )
+      </div>
+    ),
   },
-  "pma": {
-    title: "Project Management Web App (PMA)",
-    company: "PMA",
-    year: "2024",
-    role: "Fullstack Developer",
-    duration: "2024",
-    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Antd", "Axios", "SQL"],
-    stats: [
-      "Enabled structured and efficient project planning workflows",
-      "Improved visibility into project progress and performance",
-      "Delivered reliable and scalable APIs supporting multiple modules",
-      "Provided a clear and user-friendly interface for project stakeholders"
-    ],
-    heroImage: "/PMA.png",
-    overview: (
-        <>
-            <h2 className="text-3xl font-serif">Overview</h2>
-            <p className="text-lg text-gray-400 leading-relaxed">
-                Worked on the Project Management Web App (PMA) by developing core project modules, building multi-step forms, designing data-driven dashboards, and implementing CRUD APIs using pure SQL to support project planning, tracking, and execution.
-            </p>
-        </>
-    ),
-    content: (
-        <div className="space-y-12">
-            <div className="space-y-8">
-                <h2 className="text-3xl font-serif">What I Did</h2>
-                
-                <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-white">Projects Module</h3>
-                    <ul className="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Built multi-step and validated forms for project creation and updates</li>
-                        <li>Developed data tables with sorting, filtering, and pagination</li>
-                        <li>Implemented full CRUD APIs using pure SQL for project data management</li>
-                    </ul>
-                </div>
-
-                <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-white">Timeline Module</h3>
-                    <ul className="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Developed UI slicing and layouts for Gantt Chart, S-Curve, Timeline Plan, Realization Tracking, Issues Management, and People Assignment</li>
-                        <li>Ensured accurate data mapping between timeline views and backend APIs</li>
-                    </ul>
-                </div>
-
-                <div className="space-y-4">
-                    <h3 className="text-xl font-bold text-white">API Development</h3>
-                    <ul className="list-disc list-inside text-gray-400 space-y-2">
-                        <li>Built and maintained CRUD APIs for all related modules</li>
-                        <li>Ensured data consistency, validation, and error handling across the system</li>
-                        <li>Optimized API performance for large project datasets</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Result</h2>
-                <ul className="list-disc list-inside text-gray-400 space-y-2">
-                    <li>Enabled structured and efficient project planning workflows</li>
-                    <li>Improved visibility into project progress and performance</li>
-                    <li>Delivered reliable and scalable APIs supporting multiple modules</li>
-                    <li>Provided a clear and user-friendly interface for project stakeholders</li>
-                </ul>
-            </div>
-             
-            <div className="space-y-6">
-                <h2 className="text-3xl font-serif">Tech Stack</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                        "Next.js & TypeScript",
-                        "Tailwind CSS & Ant Design",
-                        "Axios (API Integration)",
-                        "Pure SQL (Backend)"
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-start gap-3 text-gray-400">
-                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-1" />
-                             <span>{item}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    )
-  }
 };
 
 export default function WorkDetailPage() {
@@ -608,86 +692,145 @@ export default function WorkDetailPage() {
     <main className="min-h-screen bg-black text-white selection:bg-green-500/30">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-12 px-6">
-        <div className="max-w-7xl mx-auto">
-            <Link href="/works" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8 group">
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                Back to Works
-            </Link>
+      <div className="max-w-7xl mx-auto px-6 pt-52 pb-24">
+        {/* Header Section */}
+        <div className="mb-16 border-b border-white/10">
+          <h1 className="text-5xl font-serif font-bold mb-2 tracking-tight">
+            {project.title}
+          </h1>
+          <p className="text-xl text-gray-400 max-w-3xl mb-8 leading-relaxed">
+            {project.company} • {project.year} • {project.role}
+          </p>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-end mb-16">
-                <div className="space-y-6">
-                    <span className="text-primary font-bold tracking-widest uppercase border border-primary/20 px-3 py-1 rounded-full text-xs">
-                        {project.company} • {project.year}
-                    </span>
-                    <h1 className="text-4xl md:text-6xl font-serif leading-tight">
-                        {project.title}
-                    </h1>
-                </div>
-                <div className="lg:pl-12">
-                   {project.overview}
-                </div>
+          {/* <div className="flex flex-wrap items-center justify-between gap-6">
+            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <Users className="w-4 h-4" />
+                <span>Team of {project.teamSize || 1}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Eye className="w-4 h-4" />
+                <span>{project.views || "1,000"} views</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Heart className="w-4 h-4" />
+                <span>{project.likes || 100} likes</span>
+              </div>
             </div>
 
-            {/* Project Meta */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-y border-white/10 py-8 mb-16">
-                <div>
-                    <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Role</h3>
-                    <p className="text-lg">{project.role}</p>
-                </div>
-                <div>
-                    <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Duration</h3>
-                    <p className="text-lg">{project.duration}</p>
-                </div>
-                <div>
-                    <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Tools</h3>
-                    <p className="text-lg">{project.tools.join(", ")}</p>
-                </div>
-                <div>
-                    <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Live Link</h3>
-                    {project.link ? (
-                        <Link href={project.link} target="_blank" className="inline-flex items-center gap-2 text-primary hover:underline cursor-pointer">
-                            Visit Site <LinkIcon className="w-3 h-3" />
-                        </Link>
-                    ) : (
-                        <span className="text-gray-500">Not Available</span>
-                    )}
-                </div>
+            <div className="flex items-center gap-4">
+               {project.repoUrl && (
+                   <Link href={project.repoUrl} target="_blank">
+                       <Button variant="ghost" className="text-gray-400 hover:text-white gap-2">
+                          <Github className="w-4 h-4" />
+                          Repository
+                       </Button>
+                   </Link>
+               )}
+               {project.link && (
+                   <Link href={project.link} target="_blank">
+                       <Button variant="ghost" className="text-gray-400 hover:text-white gap-2">
+                          <PlayCircle className="w-4 h-4" />
+                          Demo Video
+                       </Button>
+                   </Link>
+               )}
             </div>
+          </div> */}
+        </div>
 
-            {/* Hero Image */}
-            <div className="relative aspect-video overflow-hidden border border-white/10 bg-white/5 mb-24">
-                <Image 
-                    src={project.heroImage} 
-                    alt="Project Hero" 
-                    fill 
-                    className="object-cover"
-                />
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Main Content - Left Column */}
+          <div className="lg:col-span-8 space-y-16">
+            {/* Overview / Short Explanation */}
+            <div>{project.overview}</div>
 
-            {/* Content */}
-            <div className="max-w-4xl mx-auto space-y-24">
-                
-                {/* Key Stats */}
-                <div className="bg-[#111] rounded-3xl p-8 md:p-12 border border-white/5">
-                    <h3 className="text-xl font-serif mb-8">Impact & Results</h3>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {project.stats.map((stat, i) => (
-                            <div key={i} className="space-y-3">
-                                <CheckCircle2 className="w-8 h-8 text-primary" />
-                                <p className="text-lg font-medium leading-snug">{stat}</p>
-                            </div>
-                        ))}
+            {/* Main Content Sections */}
+            <div>{project.content}</div>
+
+            {/* Image Gallery (Placeholder for now as existing data doesn't have multiple images) */}
+
+            {/* Attribution / Footer of Content */}
+            {/* <div className="pt-24 flex flex-col items-center justify-center space-y-4">
+                 <div className="text-8xl font-bold text-white/5 relative group cursor-pointer select-none">
+                     <span className="group-hover:text-white/10 transition-colors duration-300">{project.likes || 522}</span>
+                     <Heart className="w-12 h-12 text-white/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:text-primary transition-colors duration-300 group-hover:scale-110" />
+                 </div>
+            </div> */}
+
+            {/* Comments Section Placeholder */}
+            {/* <div className="pt-12 border-t border-white/10">
+                <h3 className="text-sm font-bold text-gray-400 mb-4">Comments</h3>
+                <div className="bg-[#111] rounded-lg border border-white/10 p-4">
+                    <div className="flex items-center gap-2 mb-4 border-b border-white/5 pb-2">
+                        <span className="text-xs font-bold text-white px-2 py-1 bg-white/10 rounded">Write</span>
+                        <span className="text-xs text-gray-500 px-2 py-1">Preview</span>
+                    </div>
+                    <textarea 
+                        className="w-full bg-transparent text-gray-300 text-sm focus:outline-none min-h-25 resize-y"
+                        placeholder="Sign in with GitHub to comment"
+                        disabled
+                    />
+                    <div className="flex justify-end mt-2">
+                        <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white gap-2 h-8 text-xs" disabled>
+                            <Github className="w-3 h-3" />
+                            Sign in with GitHub
+                        </Button>
                     </div>
                 </div>
+            </div> */}
+          </div>
 
-                {/* Main Content */}
-                {project.content}
+          {/* Sidebar - Right Column */}
+          <div className="lg:col-span-4 relative">
+            <div className="sticky top-32 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+              <h3 className="text-sm font-bold text-white mb-6 uppercase tracking-wider">
+                On this page
+              </h3>
 
+              <nav className="flex flex-col space-y-3">
+                {project.toc?.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="text-gray-400 hover:text-primary transition-colors text-sm leading-relaxed block border-l-2 border-transparent hover:border-primary pl-3 -ml-3"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
+                {(!project.toc || project.toc.length === 0) && (
+                  <p className="text-sm text-gray-500 italic">
+                    No sections available
+                  </p>
+                )}
+              </nav>
+
+              <div className="mt-8 pt-8 border-t border-white/10 space-y-4">
+                <h4 className="text-sm font-bold text-white">
+                  Share this project
+                </h4>
+                <div className="flex gap-2">
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    className="w-8 h-8 rounded-full border-white/10 hover:bg-white/10"
+                  >
+                    <LinkIcon className="w-3 h-3" />
+                  </Button>
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    className="w-8 h-8 rounded-full border-white/10 hover:bg-white/10"
+                  >
+                    <Github className="w-3 h-3" />
+                  </Button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-      </section>
+      </div>
 
       <Footer showPhysics={false} />
     </main>

@@ -30,10 +30,10 @@ const experiences = [
       "Worked with Supabase, Sanity (Headless CMS), Shopify, and WordPress",
       "Delivered projects end-to-end from requirement gathering to production deployment",
       "Selected Projects:",
-      "• Asna Academy — ERP system for sports school",
-      "• Omah Sabin Villa — WordPress to Next.js migration",
-      "• Relocation Moving — Multilingual SEO-focused website",
-      "• Vivus Petshop & Asai Jersey — Shopify e-commerce development"
+      "Asna Academy — ERP system for sports school",
+      "Omah Sabin Villa — WordPress to Next.js migration",
+      "Relocation Moving — Multilingual SEO-focused website",
+      "Vivus Petshop & Asai Jersey — Shopify e-commerce development"
     ],
     collaborators: []
   },

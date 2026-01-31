@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       {/* <Clients /> */}
       <FeaturedWork />
-      <TapeDivider />
+      {/* <TapeDivider /> */}
       <BlogSection />
       {/* <ServicesSection /> */}
       <AboutSection />

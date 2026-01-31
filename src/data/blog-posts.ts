@@ -116,7 +116,7 @@ npm install react-bootstrap
     `
   },
   {
-    title: "Typescript for beginners. Yes you’re right, for beginners.",
+    title: "Typescript for beginners.",
     slug: "learned-typescript-last-night",
     desc: "Understanding the basics of TypeScript, Static vs Dynamic Typing, and how TypeScript works.",
     date: "2023",
