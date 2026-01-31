@@ -20,6 +20,7 @@ export interface Project {
   content: ReactNode;
   link?: string;
   videoUrl?: string;
+  shortDescription?: string;
   // New fields for design matching
   toc: TOCItem[];
   likes?: number;
@@ -42,15 +43,18 @@ export const projects: Record<string, Project> = {
       "Role-based access for admins, coaches, and students.",
       "Integrated e-commerce and finance modules.",
     ],
-    heroImage: "/asna-academy.png",
+    shortDescription: "A comprehensive platform for managing sports academies, including registration, attendance, finance, and e-commerce.",
+    videoUrl: "https://www.youtube.com/watch?v=YH1sRSWjE4Y",
+    heroImage: "/projects/asna-academy/asna-academy.png",
     likes: 420,
     views: "3,210",
     teamSize: 3,
-    link: "https://asna-academy-pink.vercel.app/",
+    link: "https://asnaacademy.com/",
     toc: [
       { id: "overview", label: "Short Explanation" },
       { id: "tech-stack", label: "Tech Stack Used" },
       { id: "features", label: "Key Features" },
+      { id: "demo", label: "Demo Video" },
     ],
     overview: (
       <>
@@ -69,6 +73,7 @@ export const projects: Record<string, Project> = {
         </p>
       </>
     ),
+
     content: (
       <div className="space-y-16">
         <div id="tech-stack" className="space-y-6 scroll-mt-32">
@@ -146,11 +151,26 @@ export const projects: Record<string, Project> = {
             </div>
           </div>
         </div>
+
+            <div id="demo" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Demo Video
+          </h2>
+          <div className="relative aspect-video overflow-hidden border border-white/10 bg-white/5 rounded-lg">
+            <iframe
+              src="https://www.youtube.com/embed/YH1sRSWjE4Y"
+              title="Project Video"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
       </div>
     ),
   },
   omahsabin: {
-    title: "Omahsabin Luxury Villas",
+    title: "Omah Sabin",
     company: "Omahsabin",
     year: "2024",
     role: "Frontend Engineer",
@@ -161,6 +181,7 @@ export const projects: Record<string, Project> = {
       "Smoother booking flow for guests.",
       "Easier content management via Sanity CMS.",
     ],
+    shortDescription: "Redesigned the Omahsabin Luxury Villas website with Next.js, Sanity CMS, and third-party booking integration.",
     heroImage: "/projects/omah-sabin/omah-sabin-2.png",
     likes: 522,
     views: "4,622",
@@ -298,7 +319,7 @@ export const projects: Record<string, Project> = {
     ),
   },
   posind: {
-    title: "POS GLID Web App",
+    title: "POS GLID",
     company: "Pos Indonesia",
     year: "2025",
     role: "Frontend Engineer",
@@ -309,7 +330,8 @@ export const projects: Record<string, Project> = {
       "User retention up by 15%.",
       "Churn rate reduced by 8%.",
     ],
-    heroImage: "/posind.png",
+    shortDescription: "Development of core modules, Master Data, Transactions, IAM, and real-time Live Chat for POS GLID.",
+    heroImage: "/projects/pos-indonesia/posind.png",
     likes: 350,
     views: "2,800",
     teamSize: 5,
@@ -466,7 +488,8 @@ export const projects: Record<string, Project> = {
       "Improved SEO and search visibility.",
       "Easy content management via Sanity CMS.",
     ],
-    heroImage: "/relocation-moving.png",
+    shortDescription: "Built a multilingual marketing website using Next.js and Sanity (Headless CMS).",
+    heroImage: "/projects/relocation-moving/relocation-moving.png",
     likes: 180,
     views: "1,200",
     teamSize: 2,
@@ -598,13 +621,14 @@ export const projects: Record<string, Project> = {
     ),
   },
   "vivus-pets": {
-    title: "Vivus Pets – Shopify E-commerce Website",
+    title: "Vivus Pets",
     company: "Vivus Pets",
     year: "2024",
     role: "Shopify Developer",
     duration: "2024",
     tools: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
     link: "https://www.vivuspets.com/",
+    shortDescription: "Redesigned and enhanced the Shopify e-commerce experience with custom Liquid development.",
     stats: [
       "Cleaner and more modern UI.",
       "Improved usability and mobile experience.",
@@ -661,5 +685,55 @@ export const projects: Record<string, Project> = {
         </div>
       </div>
     ),
+  },
+  ceisa: {
+    title: "CEISA",
+    company: "CEISA",
+    year: "2023",
+    role: "Frontend Developer",
+    duration: "2023",
+    tools: ["React", "Ant Design", "Axios", "Java Spring Boot"],
+    stats: [
+        "Improved system stability.",
+        "Enhanced data accuracy.",
+        "Streamlined user workflows."
+    ],
+    heroImage: "/projects/ceisa/ceisa.png",
+    shortDescription: "Developed complex interactive forms and handled API integrations for the Trade module to improve system stability and data accuracy.",
+    toc: [],
+    overview: (
+        <>
+        <h2 id="overview" className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">Short Explanation</h2>
+        <p className="text-gray-400 leading-relaxed mb-8">
+            Developed complex interactive forms and handled API integrations for the Trade module to improve system stability and data accuracy.
+        </p>
+        </>
+    ),
+    content: <></>,
+  },
+  pma: {
+    title: "Project Management",
+    company: "PMA",
+    year: "2024",
+    role: "Fullstack Developer",
+    duration: "2024",
+    tools: ["Next.js", "TypeScript", "Antd", "Axios", "SQL"],
+    stats: [
+        "Efficient project tracking.",
+        "Data-driven dashboards.",
+        "Optimized database queries."
+    ],
+    heroImage: "/projects/PMA/PMA.png",
+    shortDescription: "Developed core project modules, multi-step forms, data-driven dashboards, and CRUD APIs using pure SQL for project planning and tracking.",
+    toc: [],
+    overview: (
+        <>
+        <h2 id="overview" className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">Short Explanation</h2>
+        <p className="text-gray-400 leading-relaxed mb-8">
+            Developed core project modules, multi-step forms, data-driven dashboards, and CRUD APIs using pure SQL for project planning and tracking.
+        </p>
+        </>
+    ),
+    content: <></>,
   },
 };
