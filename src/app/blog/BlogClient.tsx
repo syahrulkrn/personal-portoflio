@@ -44,7 +44,7 @@ export default function BlogClient() {
                 transition={{ delay: 0.1 }}
                 className="text-gray-400 text-lg max-w-2xl mx-auto"
             >
-                Insights, tutorials, and stories about design and development.
+                Insights, tutorials, and stories about tech and development.
             </motion.p>
         </div>
 
