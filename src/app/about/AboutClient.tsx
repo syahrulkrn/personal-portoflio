@@ -58,19 +58,19 @@ export default function AboutClient() {
           <div className="hidden md:flex flex-row justify-center items-center gap-0 group/gallery">
             {[
               {
-                src: "/syahrul-berlari.jpeg",
+                src: "/me/syahrul-berlari.jpeg",
                 color: "bg-gradient-to-br from-primary/40 to-primary/10",
               },
               {
-                src: "/syahrul-laptopan.jpeg",
+                src: "/me/syahrul-laptopan.jpeg",
                 color: "bg-gradient-to-br from-primary/40 to-primary/10",
               },
               {
-                src: "/syahrul-bola.jpeg",
+                src: "/me/syahrul-bola.jpeg",
                 color: "bg-gradient-to-br from-primary/40 to-primary/10",
               },
               {
-                src: "/syahrul-kitsune.jpeg",
+                src: "/me/syahrul-kitsune.jpeg",
                 color: "bg-gradient-to-br from-primary/40 to-primary/10",
               },
             ].map((item, index) => (
@@ -130,24 +130,24 @@ export default function AboutClient() {
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
                 {
-                  src: "/syahrul-bola.jpeg",
+                  src: "/me/syahrul-bola.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
                 {
-                  src: "/syahrul-kitsune.jpeg",
+                  src: "/me/syahrul-kitsune.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
                 // Duplicates for seamless loop
                 {
-                  src: "/syahrul-berlari.jpeg",
+                  src: "/me/syahrul-berlari.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
                 {
-                  src: "/syahrul-laptopan.jpeg",
+                  src: "/me/syahrul-laptopan.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
                 {
-                  src: "/syahrul-bola.jpeg",
+                  src: "/me/syahrul-bola.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
                 {
