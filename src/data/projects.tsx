@@ -35,7 +35,7 @@ export const projects: Record<string, Project> = {
     title: "Asna Academy",
     company: "Asna Academy",
     year: "2026",
-    role: "Full Stack Developer",
+    role: "Full Stack Engineer",
     duration: "2026",
     tools: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     stats: [
@@ -766,7 +766,7 @@ export const projects: Record<string, Project> = {
     title: "Project Management",
     company: "PMA",
     year: "2024",
-    role: "Fullstack Developer",
+    role: "Software Engineer",
     duration: "2024",
     tools: ["Next.js", "TypeScript", "Antd", "Axios", "SQL"],
     stats: [

@@ -36,7 +36,7 @@ export default function AboutClient() {
             </h1>
 
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              I’m Syahrul, a Fullstack Developer who enjoys building things that
+              I’m Syahrul, a Software Engineer who enjoys building things that
               actually work in the real world — not just look good on a slide
               deck. My journey started with crafting websites and gradually grew
               into building scalable, production-ready web applications used in
@@ -45,7 +45,7 @@ export default function AboutClient() {
               disciplined, and I enjoy football for the teamwork, strategy, and
               competitive spirit. Somehow, both end up influencing how I work:
               consistent, focused, and always aiming to improve. Right now, I’m
-              growing as a Fullstack Developer (Fullstack), building meaningful
+              growing as a Software Engineer (Fullstack), building meaningful
               products, learning new things (including AI), and enjoying the
               process along the way.
             </p>

@@ -59,7 +59,7 @@ export function AboutSection() {
             className="space-y-6 text-gray-400 leading-relaxed"
           >
             <p>
-              I’m Syahrul, a Fullstack Developer who enjoys building things that
+              I’m Syahrul, a Software Engineer who enjoys building things that
               actually work in the real world — not just look good on a slide
               deck.
             </p>

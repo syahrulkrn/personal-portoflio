@@ -53,7 +53,7 @@ export function Hero() {
         >
           <h1 className="text-4xl font-black md:text-6xl lg:text-7xl font-serif text-white leading-tight">
             Hi, I'm Syahrul a <br />
-            <span className="text-white">Fullstack Developer</span>
+            <span className="text-white">Software Engineer</span>
           </h1>
         </motion.div>
 

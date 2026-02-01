@@ -3,10 +3,10 @@ import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn more about Syahrul Kurniawan, a Fullstack Developer with a passion for building scalable web applications.",
+  description: "Learn more about Syahrul Kurniawan, a Software Engineer with a passion for building scalable web applications.",
   openGraph: {
     title: "About | Syahrul Kurniawan",
-    description: "Learn more about Syahrul Kurniawan, a Fullstack Developer with a passion for building scalable web applications.",
+    description: "Learn more about Syahrul Kurniawan, a Software Engineer with a passion for building scalable web applications.",
     url: "https://syahrulkurniawan.com/about",
     siteName: "Syahrul Kurniawan Portfolio",
     locale: "en_US",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About | Syahrul Kurniawan",
-    description: "Learn more about Syahrul Kurniawan, a Fullstack Developer with a passion for building scalable web applications.",
+    description: "Learn more about Syahrul Kurniawan, a Software Engineer with a passion for building scalable web applications.",
   },
 };
 
