@@ -43,7 +43,8 @@ export const projects: Record<string, Project> = {
       "Role-based access for admins, coaches, and students.",
       "Integrated e-commerce and finance modules.",
     ],
-    shortDescription: "A comprehensive platform for managing sports academies, including registration, attendance, finance, and e-commerce.",
+    shortDescription:
+      "A comprehensive platform for managing sports academies, including registration, attendance, finance, and e-commerce.",
     videoUrl: "https://www.youtube.com/watch?v=YH1sRSWjE4Y",
     heroImage: "/projects/asna-academy/asna-academy.png",
     likes: 420,
@@ -103,10 +104,20 @@ export const projects: Record<string, Project> = {
           </h2>
 
           <div className="space-y-8">
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-white">Responsive UI</h3>
+
+              <p className="text-gray-400">
+                Designed and implemented a fully responsive user interface that
+                delivers a seamless experience across desktop and mobile
+                devices.
+              </p>
+            </div>
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-white">
                 Role-Based Access Control
               </h3>
+
               <p className="text-gray-400">
                 Supports Superadmin, Admin, Coach, and Student roles, each with
                 a tailored dashboard and permissions.
@@ -117,6 +128,13 @@ export const projects: Record<string, Project> = {
               <h3 className="text-lg font-bold text-white">
                 Comprehensive Dashboard
               </h3>
+              <Image
+                src="/projects/asna-academy/asnaacademy-1.jpg"
+                alt="Role-Based Access Control"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-lg border border-white/10"
+              />
               <ul className="list-disc list-inside text-gray-400 space-y-2">
                 <li>
                   Visual statistics for attendance, revenue, and activities.
@@ -152,7 +170,7 @@ export const projects: Record<string, Project> = {
           </div>
         </div>
 
-            <div id="demo" className="space-y-6 scroll-mt-32">
+        <div id="demo" className="space-y-6 scroll-mt-32">
           <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
             Demo Video
           </h2>
@@ -181,7 +199,8 @@ export const projects: Record<string, Project> = {
       "Smoother booking flow for guests.",
       "Easier content management via Sanity CMS.",
     ],
-    shortDescription: "Redesigned the Omahsabin Luxury Villas website with Next.js, Sanity CMS, and third-party booking integration.",
+    shortDescription:
+      "Redesigned the Omahsabin Luxury Villas website with Next.js, Sanity CMS, and third-party booking integration.",
     heroImage: "/projects/omah-sabin/omah-sabin-2.png",
     likes: 522,
     views: "4,622",
@@ -330,7 +349,8 @@ export const projects: Record<string, Project> = {
       "User retention up by 15%.",
       "Churn rate reduced by 8%.",
     ],
-    shortDescription: "Development of core modules, Master Data, Transactions, IAM, and real-time Live Chat for POS GLID.",
+    shortDescription:
+      "Development of core modules, Master Data, Transactions, IAM, and real-time Live Chat for POS GLID.",
     heroImage: "/projects/pos-indonesia/posind.png",
     likes: 350,
     views: "2,800",
@@ -488,7 +508,8 @@ export const projects: Record<string, Project> = {
       "Improved SEO and search visibility.",
       "Easy content management via Sanity CMS.",
     ],
-    shortDescription: "Built a multilingual marketing website using Next.js and Sanity (Headless CMS).",
+    shortDescription:
+      "Built a multilingual marketing website using Next.js and Sanity (Headless CMS).",
     heroImage: "/projects/relocation-moving/relocation-moving.png",
     likes: 180,
     views: "1,200",
@@ -540,6 +561,13 @@ export const projects: Record<string, Project> = {
               <h3 className="text-lg font-bold text-white">
                 Multilingual Next.js website
               </h3>
+              <Image
+                src="/projects/relocation-moving/reloc.gif"
+                width={600}
+                height={400}
+                alt="Multilingual Next.js website"
+                className="w-full h-auto rounded-lg border border-white/10"
+              />
               <p className="text-gray-400">
                 Implemented a multilingual site structure so visitors can browse
                 content in different languages while keeping URLs and routes
@@ -617,6 +645,21 @@ export const projects: Record<string, Project> = {
             ))}
           </div>
         </div>
+
+                <div id="demo" className="space-y-6 scroll-mt-32">
+          <h2 className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">
+            Demo Video
+          </h2>
+          <div className="relative aspect-video overflow-hidden border border-white/10 bg-white/5 rounded-lg">
+            <iframe
+              src="https://www.youtube.com/embed/8cqyAuXpYvw"
+              title="Project Video"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
       </div>
     ),
   },
@@ -628,7 +671,8 @@ export const projects: Record<string, Project> = {
     duration: "2024",
     tools: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
     link: "https://www.vivuspets.com/",
-    shortDescription: "Redesigned and enhanced the Shopify e-commerce experience with custom Liquid development.",
+    shortDescription:
+      "Redesigned and enhanced the Shopify e-commerce experience with custom Liquid development.",
     stats: [
       "Cleaner and more modern UI.",
       "Improved usability and mobile experience.",
@@ -694,20 +738,27 @@ export const projects: Record<string, Project> = {
     duration: "2023",
     tools: ["React", "Ant Design", "Axios", "Java Spring Boot"],
     stats: [
-        "Improved system stability.",
-        "Enhanced data accuracy.",
-        "Streamlined user workflows."
+      "Improved system stability.",
+      "Enhanced data accuracy.",
+      "Streamlined user workflows.",
     ],
     heroImage: "/projects/ceisa/ceisa.png",
-    shortDescription: "Developed complex interactive forms and handled API integrations for the Trade module to improve system stability and data accuracy.",
+    shortDescription:
+      "Developed complex interactive forms and handled API integrations for the Trade module to improve system stability and data accuracy.",
     toc: [],
     overview: (
-        <>
-        <h2 id="overview" className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">Short Explanation</h2>
+      <>
+        <h2
+          id="overview"
+          className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative"
+        >
+          Short Explanation
+        </h2>
         <p className="text-gray-400 leading-relaxed mb-8">
-            Developed complex interactive forms and handled API integrations for the Trade module to improve system stability and data accuracy.
+          Developed complex interactive forms and handled API integrations for
+          the Trade module to improve system stability and data accuracy.
         </p>
-        </>
+      </>
     ),
     content: <></>,
   },
@@ -719,20 +770,28 @@ export const projects: Record<string, Project> = {
     duration: "2024",
     tools: ["Next.js", "TypeScript", "Antd", "Axios", "SQL"],
     stats: [
-        "Efficient project tracking.",
-        "Data-driven dashboards.",
-        "Optimized database queries."
+      "Efficient project tracking.",
+      "Data-driven dashboards.",
+      "Optimized database queries.",
     ],
     heroImage: "/projects/PMA/PMA.png",
-    shortDescription: "Developed core project modules, multi-step forms, data-driven dashboards, and CRUD APIs using pure SQL for project planning and tracking.",
+    shortDescription:
+      "Developed core project modules, multi-step forms, data-driven dashboards, and CRUD APIs using pure SQL for project planning and tracking.",
     toc: [],
     overview: (
-        <>
-        <h2 id="overview" className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative">Short Explanation</h2>
+      <>
+        <h2
+          id="overview"
+          className="text-xl font-bold text-white mb-4 pl-4 border-l-4 border-primary relative"
+        >
+          Short Explanation
+        </h2>
         <p className="text-gray-400 leading-relaxed mb-8">
-            Developed core project modules, multi-step forms, data-driven dashboards, and CRUD APIs using pure SQL for project planning and tracking.
+          Developed core project modules, multi-step forms, data-driven
+          dashboards, and CRUD APIs using pure SQL for project planning and
+          tracking.
         </p>
-        </>
+      </>
     ),
     content: <></>,
   },
