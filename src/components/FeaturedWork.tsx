@@ -59,22 +59,22 @@ const projects = [
     tech: "Next.js, TypeScript, Tailwind CSS, Socket.io, ant-design, axios",
     image: "/projects/pos-indonesia/posind.png",
   },
-  {
-    slug: "relocation-moving",
-    company: "Relocation Moving",
-    year: "2024",
-    title: "Create Relocation Moving Website & CMS",
-    description: "Built a multilingual marketing website using Next.js and Sanity (Headless CMS).",
-    stats: [
-      "Multilingual support.",
-      "Improved SEO.",
-      "Easy content management.",
-    ],
-    theme: "from-[#1e293b] to-[#0f172a]", // Slate
-    border: "border-slate-500/20",
-    tech: "Next.js, React, Sanity CMS",
-    image: "/projects/relocation-moving/relocation-moving.png",
-  },
+  // {
+  //   slug: "relocation-moving",
+  //   company: "Relocation Moving",
+  //   year: "2024",
+  //   title: "Create Relocation Moving Website & CMS",
+  //   description: "Built a multilingual marketing website using Next.js and Sanity (Headless CMS).",
+  //   stats: [
+  //     "Multilingual support.",
+  //     "Improved SEO.",
+  //     "Easy content management.",
+  //   ],
+  //   theme: "from-[#1e293b] to-[#0f172a]", // Slate
+  //   border: "border-slate-500/20",
+  //   tech: "Next.js, React, Sanity CMS",
+  //   image: "/projects/relocation-moving/relocation-moving.png",
+  // },
 ];
 
 function Card({
