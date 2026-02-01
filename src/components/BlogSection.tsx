@@ -54,7 +54,7 @@ export function BlogSection() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-lg mx-auto"
           >
-            Pages filled with design wisdom, imagination and much more
+            Pages filled with apps wisdom, learning process, and much more
           </motion.p>
         </div>
 
