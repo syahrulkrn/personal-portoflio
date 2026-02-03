@@ -31,9 +31,7 @@ export default function AboutClient() {
             transition={{ delay: 0.2 }}
             className="space-y-6"
           >
-            <h1 className="text-5xl md:text-7xl font-serif">
-              The story of me
-            </h1>
+            <h1 className="text-5xl md:text-7xl font-serif">The story of me</h1>
 
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
               I’m Syahrul, a Software Engineer who enjoys building things that
@@ -122,23 +120,6 @@ export default function AboutClient() {
             >
               {[
                 {
-                  src: "/syahrul-berlari.jpeg",
-                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
-                },
-                {
-                  src: "/syahrul-laptopan.jpeg",
-                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
-                },
-                {
-                  src: "/me/syahrul-bola.jpeg",
-                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
-                },
-                {
-                  src: "/me/syahrul-kitsune.jpeg",
-                  color: "bg-gradient-to-br from-primary/40 to-primary/10",
-                },
-                // Duplicates for seamless loop
-                {
                   src: "/me/syahrul-berlari.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
@@ -151,7 +132,7 @@ export default function AboutClient() {
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
                 {
-                  src: "/syahrul-kitsune.jpeg",
+                  src: "/me/syahrul-kitsune.jpeg",
                   color: "bg-gradient-to-br from-primary/40 to-primary/10",
                 },
               ].map((item, index) => (
