@@ -14,12 +14,12 @@ export function TestimonialsSection() {
       text: "It's been such a pleasure getting to work with Syahrul Kurniawan! He's such a talented software engineer, and he really knows his stuff when it comes to React and Next.js. It's truly impressive how he can solve complex issues with such creative and innovative solutions.",
     },
     {
-      name: "Bedy Briliant Wijaya",
-      role: "Software Engineer at Peentar",
-      image: "/testimonials/bedy.png",
-      linkedin: "https://www.linkedin.com/in/bedy-briliant-wijaya/",
-      text: "It's been such a pleasure getting to work with Syahrul Kurniawan! He's such a talented software engineer, and he really knows his stuff when it comes to React and Next.js. It's truly impressive how he can solve complex issues with such creative and innovative solutions.",
-    },
+      name: "Dony Erlambang",
+      role: "Front End Developer at Nutech",
+      image: "/testimonials/donny.png",
+      linkedin: "https://www.linkedin.com/in/donny-erlambang/",
+      text: "I really enjoyed working with Syahrul as a Front End Developer. He is a great team player with a positive attitude, and collaborating with him always felt smooth and enjoyable."},
+      
     {
       name: "Yudi Gunawan",
       role: "Fullstack Engineer at Intikom",
@@ -81,7 +81,7 @@ export function TestimonialsSection() {
                 className="block"
               >
                 <motion.div
-                  className="flex-shrink-0 w-[350px] md:w-[400px] p-8 rounded-[2rem] border border-white/20 space-y-6 hover:border-white/30 transition-colors backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 hover:from-primary/50 hover:to-primary/20 h-full cursor-pointer"
+                  className="flex-shrink-0 w-[350px] md:w-[400px] p-8 rounded-[2rem] border border-white/20 space-y-6 hover:border-white/30 transition-colors backdrop-blur-md bg-gradient-to-br from-primary/40 to-primary/10 hover:from-primary/50 hover:to-primary/20 h-full cursor-alias"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
