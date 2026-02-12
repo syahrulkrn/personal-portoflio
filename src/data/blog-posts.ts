@@ -2,7 +2,7 @@ export const blogPosts = [
   {
     title: "How to Set Up React: A Complete Guide for Beginners",
     slug: "setup-react-guide-beginners",
-    desc: "A step-by-step guide to installing Node.js, creating a React project, and running your first development server.",
+    desc:"",
     date: "2023",
     image: "/create-react.png",
     content: `
@@ -118,7 +118,7 @@ npm install react-bootstrap
   {
     title: "Typescript for beginners.",
     slug: "learned-typescript-last-night",
-    desc: "Understanding the basics of TypeScript, Static vs Dynamic Typing, and how TypeScript works.",
+    desc:"",
     date: "2023",
     image: "/typescript.png",
     content: `
@@ -204,7 +204,7 @@ console.log(firstName + lastName)
   {
     title: "Menjadi The Most Progressive Student di Binar Academy",
     slug: "the-most-progressive-student-binar",
-    desc: "Rasanya sangat senang bisa graduate di Binar Academy sebagai Fullstack Web Developer setelah lebih dari 6 bulan belajar di Binar bersama Faciliator dan teman-teman yang lain.",
+    desc:"",
     date: "28 June 2023",
     image: "/binar-academy.png",
     content: `

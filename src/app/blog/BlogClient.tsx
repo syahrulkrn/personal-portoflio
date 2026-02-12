@@ -20,7 +20,7 @@ const blogs = [
   {
     title: "Menjadi The Most Progressive Student di Binar Academy",
     slug: "the-most-progressive-student-binar",
-    desc: "Rasanya sangat senang bisa graduate di Binar Academy sebagai Fullstack Web Developer setelah lebih dari 6 bulan belajar di Binar bersama Faciliator dan teman-teman yang lain."
+    desc: "Graduate di Binar Academy sebagai Fullstack Web Developer setelah lebih dari 6 bulan belajar di Binar bersama Faciliator dan teman-teman yang lain."
   }
 ];
 
