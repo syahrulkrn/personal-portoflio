@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,20 +12,9 @@ jobs:
 
     steps:
       - name: Deploy to VPS
-        uses: appleboy/ssh-action@v1.2.2
+        uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          script: |
-            set -e
-
-            cd /home/deploy/apps/personal-portoflio/current
-
-            git fetch origin
-            git reset --hard origin/main
-
-            npm ci
-            npm run build
-
-            pm2 reload personal-portoflio
+          script: /home/deploy/apps/personal-portoflio/deploy.sh
